@@ -1,0 +1,43 @@
+.information.transition_metals {
+    color: #ff9800;
+}
+
+.information.metalloids {
+    color: #26c6da;
+}
+
+.information.hydrogen {
+    color: #42a5f5;
+}
+
+.information.amphigens {
+    color: #42a5f5;
+}
+
+.information.alkali_metals {
+    color: #ef5350;
+}
+
+.information.alkali_earth_metals {
+    color: #ff7043;
+}
+
+.information.basic_metals {
+    color: #66bb6a;
+}
+
+.information.noble_gases {
+    color: #7e57c2;
+}
+
+.information.halogens {
+    color: #5c6bc0;
+}
+
+.information.lanthanoids {
+    color: #7e57c2;
+}
+
+.information.actinoids {
+    color: #ab47bc;
+}

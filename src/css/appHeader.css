@@ -1,0 +1,20 @@
+.app-header{
+    
+    background-color: #193132;
+    color: #fff;
+    fill: #fff;
+
+    min-height: 56px;
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    
+}
+
+.title{
+    padding-left: 16px;
+    font-size: 14pt;
+    font-weight: 600;
+}

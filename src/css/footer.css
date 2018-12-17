@@ -1,0 +1,20 @@
+.footer{
+
+    background-color: #0e1a1b;
+    color: #fff;
+    fill: #fff;
+
+    min-height: 170px;  /*  56*/
+    width: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+
+}
+
+.title{
+    padding-left: 16px;
+    font-size: 14pt;
+    font-weight: 600;
+}
