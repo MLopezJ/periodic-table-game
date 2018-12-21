@@ -66,7 +66,7 @@ class ChemicalElement extends Component {
                 {
                     this.state.chemicalElement !== undefined ?
                         <div className= {`periodic-table-element information ${this.state.chemicalElement.group}`}> 
-                            {console.log(this.state.chemicalElement)}
+                            {/*console.log(this.state.chemicalElement)*/}
                             <div className={'atomic'}>{this.state.chemicalElement.atomic}</div>
                             <div className={'symbol'}>{this.state.chemicalElement.symbol}</div>
                             <div className={'name'}>{this.state.chemicalElement.name}</div>
