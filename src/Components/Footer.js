@@ -25,7 +25,6 @@ class Footer extends Component{
     }
 
     dedicationMessage = () => {
-        //console.log('here')
         if (this.state.showDedicationMessage){
 
         return(
