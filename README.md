@@ -15,6 +15,11 @@ Is the core of the app, this component allowed the representation of the periodi
 
 The square can be a square with a chemical element, a emty square or a tiny square. The square with a chemical element contains into it another component called ChemicalElement, who contains all the chemical specifications of the element. 
 
+### Footer
+It works as a common footer. It have a toggle button for see a dedication message.
+
+### Chemical elements information
+
 The data of the chemical elements is stored in a file into Data folder with json format.
 
 ## Hosted
