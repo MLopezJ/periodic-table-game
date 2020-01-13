@@ -14,8 +14,6 @@ class ChemicalElement extends Component {
             chemicalElementGroupName : undefined
         }
 
-        this.words = {1:'M', 5:'A', 18:'U', 21:'R', 33:'O', 38:'L', 43:'O', 52:'P',72:'E',111:'Z'}
-
         this.setChemicalElement = this.setChemicalElement.bind(this);
         this.toggleModalChemicalElementInformation = this.toggleModalChemicalElementInformation.bind(this);
         this.prettyGroupName = this.prettyGroupName.bind(this);
@@ -58,6 +56,19 @@ class ChemicalElement extends Component {
         this.setChemicalElement(element)
     }
 
+    info = (title, description) => {
+        return(
+            <div className={'box-body-information'}>
+                <div className={'box-body-information-key'}>
+                    {title}
+                </div>
+                <div className={'box-body-information-value'}>
+                    {description} 
+                </div>
+            </div>
+        )
+    }
+
     
 
     render(){
@@ -76,14 +87,6 @@ class ChemicalElement extends Component {
                         null
                 }
 
-                {/*
-                    this.state.modalChemicalElementInformation ?
-                        <div className={'a'}>
-                            {this.words[this.state.chemicalElement.atomic]}
-                        </div>
-                    :
-                        null
-                */}
                 {
                     this.state.modalChemicalElementInformation ?
                        <div>
@@ -105,136 +108,58 @@ class ChemicalElement extends Component {
                                     <div className={'box-body'}>
 
                                         {
-                                            this.state.chemicalElement.atomic !== null &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Atomic Number
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.atomic}
-                                                </div>
-                                            </div>
+                                            this.state.chemicalElement.atomic !== null && 
+                                            this.info("Atomic Number", this.state.chemicalElement.atomic) 
                                         }
                                         
                                         {
                                             this.state.chemicalElement.symbol &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Symbol
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.symbol}
-                                                </div>
-                                            </div>
+                                            this.info("Symbol", this.state.chemicalElement.symbol)
                                         }
                                         
                                         {
                                             this.state.chemicalElement.atomicMass &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Mass
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.atomicMass}
-                                                </div>
-                                            </div>
+                                            this.info("Mass", this.state.chemicalElement.atomicMass)
                                         }
                                         
                                         {
                                             this.state.chemicalElement.electronicConfiguration &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Electronic Conf.
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.electronicConfiguration}
-                                                </div>
-                                            </div>
-
+                                            this.info("Electronic Conf.", this.state.chemicalElement.electronicConfiguration)
                                         }
 
                                         {
                                             this.state.chemicalElement.electronegativity &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Electronegativity
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.electronegativity}
-                                                </div>
-                                            </div>
+                                            this.info("Electronegativity", this.state.chemicalElement.electronegativity)
                                         }
 
                                         {
                                             this.state.chemicalElement.atomicRadius &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Atomic Radius
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.atomicRadius} pm
-                                                </div>
-                                            </div>
+                                            this.info("Atomic Radius", this.state.chemicalElement.atomicRadius)
                                         }
                                         
                                         {
                                             this.state.chemicalElement.ionRadius &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Ionic Radius
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.ionRadius} pm
-                                                </div>
-                                            </div>
+                                            this.info("Ionic Radius", `${this.state.chemicalElement.ionRadius} pm`)
                                         }
                                         
                                         {
                                             this.state.chemicalElement.vanDelWaalsRadius !== null &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Van der Waals Radius
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.vanDelWaalsRadius} pm
-                                                </div>
-                                            </div>
+                                            this.info("Van der Waals Radius", `${this.state.chemicalElement.vanDelWaalsRadius} pm`)
                                         }
                                         
                                         {
                                             this.state.chemicalElement.ionizationEnergy &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Ionic Energic
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.ionizationEnergy} mol
-                                                </div>
-                                            </div>
+                                            this.info("Ionic Energic", `${this.state.chemicalElement.ionizationEnergy} mol`)
                                         }
                                         
                                         {
                                             this.state.chemicalElement.electronAffinity !== null &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Electronic affinity
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.electronAffinity}
-                                                </div>
-                                            </div>
+                                            this.info("Electronic affinity", this.state.chemicalElement.electronAffinity)
                                         }
                                         
                                         {
                                             this.state.chemicalElement.oxidationStates &&
-                                            <div className={'box-body-information'}>
-                                                <div className={'box-body-information-key'}>
-                                                    Oxidation state
-                                                </div>
-                                                <div className={'box-body-information-value'}>
-                                                    {this.state.chemicalElement.oxidationStates} 
-                                                </div>
-                                            </div>
+                                            this.info("Oxidation state", this.state.chemicalElement.oxidationStates)
                                         }
                                         
                                     </div>
