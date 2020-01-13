@@ -5,7 +5,17 @@
 This application is a periodic table of chemical elements, it contains the atomic number, electron configuration and others chemical properties. This project is created with the intention of practice front-end skills, was building with React and the styles were added with CSS. The periodic table is hosted in Heroku and it is inspired in a previous app called Atom.
 
 ## React
----writing---
+The app is compounded by 3 main sections represented in the code by components. Those sections are the header, the matrix and the footer. Each section have his own proposed and will be commented quickly below. 
+
+### Header
+The purpose of the header is just to be a place where to put the title
+
+### Matrix
+Is the core of the app, this component allowed the representation of the periodic table, is composed by columns and rows and each cell of the matrix is represented by a Square, who is actually other component. 
+
+The square can be a square with a chemical element, a emty square or a tiny square. The square with a chemical element contains into it another component called ChemicalElement, who contains all the chemical specifications of the element. 
+
+The data of the chemical elements is stored in a file into Data folder with json format.
 
 ## Hosted
 This project is hosted in Heroku. It can be accessed in the following link: http://mh-periodictable.herokuapp.com/
