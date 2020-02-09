@@ -81,7 +81,9 @@ html{
     display: table-cell;
 }
 
-
+.chemicalElement:hover{
+    background-color:  #0e1a1b ;
+}
 
 
 /* button pt-element element transition_metals*/
