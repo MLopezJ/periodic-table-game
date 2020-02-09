@@ -104,7 +104,7 @@ canvas {
     transform: translate(-50%,-50%);
     padding: 16px;
     border-radius: 4px;
-    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    box-shadow: 10px 10px 11px 10px rgba(0,0,0,0.75);
 }
 
 .box{
