@@ -12,6 +12,7 @@ class App extends Component {
         <div className={'app-content'}>
           <AppHeader/>
           <Matrix/>
+          <Footer/>
         </div>
       </div>
     );

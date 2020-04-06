@@ -7,29 +7,30 @@ import './../css/index.css'
 class Square extends Component {
 
     emptySquare = () => (
-        <div className={'Empty'}> 
-            {/*  
-            <p>{'empty'}</p>
-            */}
+        <div className={'Empty'}>
         </div>
     )
 
     tinySquare = () => (
-        <div className={'Tiny'}> 
-            {/*
-            <p className={'Tiny'}>{'tiny'}</p>
-            */}
+        <div className={'Tiny'}>
         </div>
     )
 
+    ChemicalElement = () => {
+        return(
+            <ChemicalElement
+                atomicNumber = {this.props.positionOfSquareInFormat}
+                selectedElements = {this.props.selectedElements}
+            />
+        )
+    }
+
     render(){
         return(
-            <div className={'Square'} >
+            <div className={'Square '} >
                 {
                     this.props.positionOfSquareInFormat > 0 ?
-                        <ChemicalElement
-                            atomicNumber = {this.props.positionOfSquareInFormat}
-                        />
+                        this.ChemicalElement()
                     :
                         null
                 }

@@ -6,7 +6,31 @@ import './../css/index.css'
 class Matrix extends Component {
     constructor() {
         super();
+        this.state = {
+            selectedElements: undefined, 
+            generatedSelectedElements: false
+        }
         this.matrixFormat = require('./../Data/format.json');
+        this.selectedElements= this.setSelectedElements.bind(this);
+        this.generatedSelectedElements= this.setGeneratedSelectedElements.bind(this);
+    }
+
+    setGeneratedSelectedElements= () => {
+        this.setState({
+            generatedSelectedElements: true
+        });
+    }
+
+    setSelectedElements(){
+        var arr = [];
+        while(arr.length < 10){
+            var r = Math.floor(Math.random() * 118) + 1;
+            if(arr.indexOf(r) === -1) arr.push(r);
+        }
+        this.setState({
+            selectedElements: arr
+        });
+        this.setGeneratedSelectedElements();
     }
 
     frameOfMatrix = (position, contend) => {
@@ -52,6 +76,7 @@ class Matrix extends Component {
                         return(
                             <Square
                                 positionOfSquareInFormat = {cellIndex}
+                                selectedElements= {this.state.selectedElements}
                             />
                         )
                     })}
@@ -62,7 +87,13 @@ class Matrix extends Component {
     }
 
 
+
     render(){
+        
+        if(this.state.generatedSelectedElements === false){
+            this.setSelectedElements()
+        }
+
         return(
             <div className="periodic-table">
                 <div className="table">

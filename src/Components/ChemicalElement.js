@@ -11,13 +11,21 @@ class ChemicalElement extends Component {
         this.state = {
             chemicalElement : undefined,
             modalChemicalElementInformation : false, 
-            chemicalElementGroupName : undefined
+            chemicalElementGroupName : undefined,
+            shake : undefined
         }
 
         this.setChemicalElement = this.setChemicalElement.bind(this);
         this.toggleModalChemicalElementInformation = this.toggleModalChemicalElementInformation.bind(this);
         this.prettyGroupName = this.prettyGroupName.bind(this);
         this.chemicalElements = require('./../Data/chemicalElements');
+        this.shake = this.setShake.bind(this);
+    }
+
+    setShake = () => {
+        this.setState({
+            shake: true
+        });
     }
 
     prettyGroupName(groupName){
@@ -69,18 +77,35 @@ class ChemicalElement extends Component {
         )
     }
 
+    checkShake = () => {
+        let shake = null
+        if (this.props.selectedElements){
+            shake = this.props.selectedElements.indexOf(this.state.chemicalElement.atomic) === -1 ? false : "shake" ;
+            if (shake){
+                this.setShake();
+            }
+            
+        }
+    }
+
     
 
     render(){
+        const { shake } = this.state;
+
+        if(!this.state.shake){
+            this.checkShake()
+        }
+
         return(
             <div className = {'chemicalElement'}> 
                 {
                     this.state.chemicalElement !== undefined ?
-                        <div className= {`periodic-table-element information ${this.state.chemicalElement.group}`}> 
+                        <div className={`periodic-table-element information ${this.state.chemicalElement.group} ${shake ? "shakeElement":""}`} >
                             {/*console.log(this.state.chemicalElement)*/}
                             <div className={'atomic'}>{this.state.chemicalElement.atomic}</div>
                             <div className={'symbol'}>{this.state.chemicalElement.symbol}</div>
-                            <div className={'name'}>{this.state.chemicalElement.name}</div>
+                            <div className={'name'}>{this.state.chemicalElement.name}</div>                
                             <canvas onClick={this.toggleModalChemicalElementInformation} className="ink"></canvas>
                         </div>
                     :
