@@ -21,6 +21,7 @@ class Square extends Component {
             <ChemicalElement
                 atomicNumber = {this.props.positionOfSquareInFormat}
                 selectedElements = {this.props.selectedElements}
+                updateSelectedElements = {this.props.updateSelectedElements}
             />
         )
     }

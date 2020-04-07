@@ -12,7 +12,8 @@ class ChemicalElement extends Component {
             chemicalElement : undefined,
             modalChemicalElementInformation : false, 
             chemicalElementGroupName : undefined,
-            shake : undefined
+            shake : undefined,
+            nameValue : undefined
         }
 
         this.setChemicalElement = this.setChemicalElement.bind(this);
@@ -20,11 +21,12 @@ class ChemicalElement extends Component {
         this.prettyGroupName = this.prettyGroupName.bind(this);
         this.chemicalElements = require('./../Data/chemicalElements');
         this.shake = this.setShake.bind(this);
+        this.nameValue = this.handleTextChange.bind(this);
     }
 
-    setShake = () => {
+    setShake = (state) => {
         this.setState({
-            shake: true
+            shake: state
         });
     }
 
@@ -80,12 +82,37 @@ class ChemicalElement extends Component {
     checkShake = () => {
         let shake = null
         if (this.props.selectedElements){
-            shake = this.props.selectedElements.indexOf(this.state.chemicalElement.atomic) === -1 ? false : "shake" ;
-            if (shake){
-                this.setShake();
-            }
             
+            shake = this.props.selectedElements.indexOf(this.state.chemicalElement.atomic) === -1 ? false : "shake" ;
+            
+            if (shake){
+                this.setShake(true);
+            }
         }
+    }
+
+    textChange = (event) => {
+        
+        this.handleTextChange(event.target.value)
+
+        console.log("name ",this.state.chemicalElement.name)
+
+        if(this.state.chemicalElement.name.toLowerCase() == event.target.value.toLowerCase()){
+            console.log("equals")
+            this.props.updateSelectedElements(this.state.chemicalElement.atomic)
+            this.setShake(undefined);
+        }
+        
+    }
+
+    handleTextChange = (value) => {
+        this.setState({nameValue: value});
+    }
+
+    inputText = () => {
+        return(
+            <textarea placeholder= {"??"} value={this.state.nameValue} onChange={this.textChange} />
+        )
     }
 
     
@@ -105,7 +132,11 @@ class ChemicalElement extends Component {
                             {/*console.log(this.state.chemicalElement)*/}
                             <div className={'atomic'}>{this.state.chemicalElement.atomic}</div>
                             <div className={'symbol'}>{this.state.chemicalElement.symbol}</div>
-                            <div className={'name'}>{this.state.chemicalElement.name}</div>                
+                            {shake?
+                                <div className={'name'}>??</div>
+                            :
+                                <div className={'name'}>{this.state.chemicalElement.name}</div>
+                            }             
                             <canvas onClick={this.toggleModalChemicalElementInformation} className="ink"></canvas>
                         </div>
                     :
@@ -121,7 +152,12 @@ class ChemicalElement extends Component {
 
                                     <div className={`box-header information ${this.state.chemicalElement.group} `}>
                                         <div className={'element-name'}>
-                                            {this.state.chemicalElement.name}
+                                        {shake?
+                                            this.inputText()
+                                        :
+                                            this.state.chemicalElement.name
+                                        } 
+                                            
                                         </div>
 
                                         <div className={'element-group'}>

@@ -15,22 +15,35 @@ class Matrix extends Component {
         this.generatedSelectedElements= this.setGeneratedSelectedElements.bind(this);
     }
 
+    updateSelectedElements = (id) => {
+        const list = this.state.selectedElements; 
+        const newList = list.filter(index => index != id)
+        this.setSelectedElements(newList);
+    }
+
     setGeneratedSelectedElements= () => {
         this.setState({
             generatedSelectedElements: true
         });
     }
 
-    setSelectedElements(){
+    generatedList = () => {
         var arr = [];
-        while(arr.length < 10){
+        while(arr.length < 3){
             var r = Math.floor(Math.random() * 118) + 1;
             if(arr.indexOf(r) === -1) arr.push(r);
         }
+        this.setSelectedElements(arr);
+    }
+
+    setSelectedElements(arr){
+        
         this.setState({
             selectedElements: arr
         });
-        this.setGeneratedSelectedElements();
+        if (!this.state.generatedSelectedElements){
+            this.setGeneratedSelectedElements();
+        }
     }
 
     frameOfMatrix = (position, contend) => {
@@ -77,6 +90,7 @@ class Matrix extends Component {
                             <Square
                                 positionOfSquareInFormat = {cellIndex}
                                 selectedElements= {this.state.selectedElements}
+                                updateSelectedElements = {this.updateSelectedElements}
                             />
                         )
                     })}
@@ -91,7 +105,7 @@ class Matrix extends Component {
     render(){
         
         if(this.state.generatedSelectedElements === false){
-            this.setSelectedElements()
+            this.generatedList()
         }
 
         return(

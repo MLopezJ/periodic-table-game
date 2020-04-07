@@ -189,3 +189,7 @@ canvas {
     background-color: #132526 !important;
     box-shadow: 0px 0px;
 }
+
+textarea {
+    text-align: center;
+}
