@@ -36,3 +36,8 @@
     align-items: center;
     padding: 16px;
 }
+
+#authorDescription:hover{
+    background-color: #132526 !important;
+    box-shadow: 10px 10px 5px 0px rgba(171,71,188,1);
+}

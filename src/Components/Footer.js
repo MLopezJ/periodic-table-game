@@ -34,19 +34,19 @@ class Footer extends Component{
                     <div className={'box'}>
                             {
                                 <div className={'box-body-information'}>
-                                Para:
+                                Created by:
                                 <div className={'box-header information alkali_metals'}> {/*  ${this.state.chemicalElement.group} */}
                         
                             <div className={'element-name'}>
-                                {'Marianne'}
+                                {'Mauro'}
                             </div>
 
                             <div className={'element-group'}>
-                                {'Hull'}
+                                {'López'}
                             </div>
 
                             <div className={'element-group'}>
-                                {'Cantillo'}
+                                {'Jiménez'}
                             </div>
                         </div>
                                 </div>  
@@ -55,34 +55,20 @@ class Footer extends Component{
                         <div className={'box-body'}>
                             {
                                 <div className={'box-body-information-footer information amphigens'}>
-                                Hecho con código y cariño para una gran persona,
+                                Mail: lopezjimenezmauro05@gmail.com
                                 </div>  
                             }
                             {
                                 <div className={'box-body-information-footer information noble_gases'}>
-                                brillante química,
+                                Github: MLopezJ
                                 </div>  
                             }
                             {
                                 <div className={'box-body-information-footer information transition_metals'}>
-                                talentosa comediante, bailarina y cantante.
+                                Twitter: MauroLopezJ
                                 </div>  
                             }
-                            {
-                                <div className={'box-body-information-footer information basic_metals'}>
-                                Que tiene un corazón gigante y lleno de cariño, 
-                                </div>  
-                            }
-                            {
-                                <div className={'box-body-information-footer information alkali_earth_metals'}>
-                                una mirada transparentes como su alma 
-                                </div>  
-                            }
-                            {
-                                <div className={'box-body-information-footer information actinoids'}>
-                                y una sonrisa para cada nueva situación 
-                                </div>  
-                            }
+                            
                             
                         </div>
                     </div>
@@ -98,9 +84,8 @@ class Footer extends Component{
             <div>
                 {this.dedicationMessage()}
             <div className={'footer'}>
-                <div onClick={this.toggleShowDedicationMessage}>
-                    <h1 className={'title'}>{'<ML/>'}</h1>
-                   {/*<h4 className={'title'}> {'Diciembre, 2018'} </h4>*/}
+                <div id="authorDescription" onClick={this.toggleShowDedicationMessage}>
+                    <h1 className={'title'}>{'<MauroLopez/>'}</h1>
                 </div>
             </div>
             </div>
