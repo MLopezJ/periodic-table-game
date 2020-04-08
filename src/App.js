@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Matrix from './Components/Matrix';
 import AppHeader from './Components/AppHeader';
 import Footer from './Components/Footer';
+import Instructions from './Components/Instructions';
 //import './App.css';
 import './css/index.css'
 
@@ -13,6 +14,7 @@ class App extends Component {
           <AppHeader/>
           <Matrix/>
           <Footer/>
+          <Instructions/>
         </div>
       </div>
     );
