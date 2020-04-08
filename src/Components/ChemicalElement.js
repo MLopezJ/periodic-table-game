@@ -13,7 +13,8 @@ class ChemicalElement extends Component {
             modalChemicalElementInformation : false, 
             chemicalElementGroupName : undefined,
             shake : undefined,
-            nameValue : undefined
+            nameValue : undefined, 
+            inputShadow : undefined
         }
 
         this.setChemicalElement = this.setChemicalElement.bind(this);
@@ -22,6 +23,13 @@ class ChemicalElement extends Component {
         this.chemicalElements = require('./../Data/chemicalElements');
         this.shake = this.setShake.bind(this);
         this.nameValue = this.handleTextChange.bind(this);
+        this.inputShadow = this.setInputShadow.bind(this);
+    }
+
+    setInputShadow = (state) => {
+        this.setState({
+            inputShadow: state
+        });
     }
 
     setShake = (state) => {
@@ -91,11 +99,69 @@ class ChemicalElement extends Component {
         }
     }
 
+    similarity = (s1, s2) => {
+        var longer = s1;
+        var shorter = s2;
+        if (s1.length < s2.length) {
+          longer = s2;
+          shorter = s1;
+        }
+        var longerLength = longer.length;
+        if (longerLength == 0) {
+          return 1.0;
+        }
+        return ((longerLength - this.editDistance(longer, shorter)) / parseFloat(longerLength)*100);
+    }
+
+    editDistance = (s1, s2) => {
+        //s1 = s1.toLowerCase();
+        //s2 = s2.toLowerCase();
+
+        var costs = new Array();
+        for (var i = 0; i <= s1.length; i++) {
+          var lastValue = i;
+          for (var j = 0; j <= s2.length; j++) {
+            if (i == 0)
+              costs[j] = j;
+            else {
+              if (j > 0) {
+                var newValue = costs[j - 1];
+                if (s1.charAt(i - 1) != s2.charAt(j - 1))
+                  newValue = Math.min(Math.min(newValue, lastValue),
+                    costs[j]) + 1;
+                costs[j - 1] = lastValue;
+                lastValue = newValue;
+              }
+            }
+          }
+          if (i > 0)
+            costs[s2.length] = lastValue;
+        }
+        return costs[s2.length];
+      }
+
     textChange = (event) => {
         
         this.handleTextChange(event.target.value)
 
         console.log("name ",this.state.chemicalElement.name)
+        var similarity = this.similarity(this.state.chemicalElement.name.toLowerCase(),event.target.value.toLowerCase())
+        
+        if (event.target.value.length === 0){
+            this.setInputShadow(undefined)
+        }
+
+        if(similarity >= 0 && similarity < 30  && event.target.value.length > 1){
+            this.setInputShadow("inputShadowRed")
+        }
+
+        if(similarity >= 30 && similarity < 70 ){
+            this.setInputShadow("inputShadowOrange")
+        }
+
+        if(similarity >= 70 && similarity < 100 ){
+            this.setInputShadow("inputShadowGreen")
+        }
 
         if(this.state.chemicalElement.name.toLowerCase() == event.target.value.toLowerCase()){
             console.log("equals")
@@ -110,8 +176,9 @@ class ChemicalElement extends Component {
     }
 
     inputText = () => {
+        
         return(
-            <textarea placeholder= {"??"} value={this.state.nameValue} onChange={this.textChange} />
+            <input className={`${this.state.inputShadow}`} placeholder= {"??"} value={this.state.nameValue} onChange={this.textChange} />
         )
     }
 

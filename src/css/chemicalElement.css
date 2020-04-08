@@ -190,6 +190,18 @@ canvas {
     box-shadow: 0px 0px;
 }
 
-textarea {
+input {
     text-align: center;
+}
+
+.inputShadowRed {
+    box-shadow: 8px 5px 16px -3px rgba(255,5,5,1);
+}
+
+.inputShadowOrange {
+    box-shadow: 8px 5px 16px -3px rgba(255,163,5,1);
+}
+
+.inputShadowGreen{
+    box-shadow: 8px 5px 16px -3px rgba(0,122,43,1);
 }
