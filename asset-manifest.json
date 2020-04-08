@@ -1,13 +1,13 @@
 {
-  "main.css": "/periodic-table-game/static/css/main.b89db88c.chunk.css",
-  "main.js": "/periodic-table-game/static/js/main.49fa6625.chunk.js",
-  "main.js.map": "/periodic-table-game/static/js/main.49fa6625.chunk.js.map",
-  "static/js/1.5a7d4906.chunk.js": "/periodic-table-game/static/js/1.5a7d4906.chunk.js",
-  "static/js/1.5a7d4906.chunk.js.map": "/periodic-table-game/static/js/1.5a7d4906.chunk.js.map",
+  "main.css": "/periodic-table-game/static/css/main.9eaa1eda.chunk.css",
+  "main.js": "/periodic-table-game/static/js/main.773ae525.chunk.js",
+  "main.js.map": "/periodic-table-game/static/js/main.773ae525.chunk.js.map",
+  "static/js/1.658145b3.chunk.js": "/periodic-table-game/static/js/1.658145b3.chunk.js",
+  "static/js/1.658145b3.chunk.js.map": "/periodic-table-game/static/js/1.658145b3.chunk.js.map",
   "runtime~main.js": "/periodic-table-game/static/js/runtime~main.3a5b0c3f.js",
   "runtime~main.js.map": "/periodic-table-game/static/js/runtime~main.3a5b0c3f.js.map",
-  "static/css/main.b89db88c.chunk.css.map": "/periodic-table-game/static/css/main.b89db88c.chunk.css.map",
+  "static/css/main.9eaa1eda.chunk.css.map": "/periodic-table-game/static/css/main.9eaa1eda.chunk.css.map",
   "index.html": "/periodic-table-game/index.html",
-  "precache-manifest.779fabdd54c3eee50aa6f2758b49b9c7.js": "/periodic-table-game/precache-manifest.779fabdd54c3eee50aa6f2758b49b9c7.js",
+  "precache-manifest.35c606cbad361b4514642579eb4585dc.js": "/periodic-table-game/precache-manifest.35c606cbad361b4514642579eb4585dc.js",
   "service-worker.js": "/periodic-table-game/service-worker.js"
 }
