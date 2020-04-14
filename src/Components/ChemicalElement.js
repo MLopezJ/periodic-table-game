@@ -14,7 +14,8 @@ class ChemicalElement extends Component {
             chemicalElementGroupName : undefined,
             shake : undefined,
             nameValue : undefined, 
-            inputShadow : undefined
+            inputShadow : undefined,
+            chemicalElementsSpanish : undefined
         }
 
         this.setChemicalElement = this.setChemicalElement.bind(this);
@@ -24,6 +25,7 @@ class ChemicalElement extends Component {
         this.shake = this.setShake.bind(this);
         this.nameValue = this.handleTextChange.bind(this);
         this.inputShadow = this.setInputShadow.bind(this);
+        this.chemicalElementsSpanish = require('./../Data/chemicalElementsSpanish')
     }
 
     setInputShadow = (state) => {
@@ -71,6 +73,10 @@ class ChemicalElement extends Component {
     
     componentDidMount = () =>{
         const element = this.chemicalElements.find(item => item.atomic === this.props.atomicNumber)
+        const elementSpanish = this.chemicalElementsSpanish.find(item => item.atomic === this.props.atomicNumber)
+        element.name = elementSpanish.name;
+        element.group = elementSpanish.group;
+        
         this.setChemicalElement(element)
     }
 
@@ -144,8 +150,12 @@ class ChemicalElement extends Component {
         
         this.handleTextChange(event.target.value)
 
+        const eventValue = event.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        const stateValue = this.state.chemicalElement.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
         console.log("name ",this.state.chemicalElement.name)
-        var similarity = this.similarity(this.state.chemicalElement.name.toLowerCase(),event.target.value.toLowerCase())
+
+        var similarity = this.similarity(stateValue,eventValue)
         
         if (event.target.value.length === 0){
             this.setInputShadow(undefined)
@@ -163,7 +173,7 @@ class ChemicalElement extends Component {
             this.setInputShadow("inputShadowGreen")
         }
 
-        if(this.state.chemicalElement.name.toLowerCase() == event.target.value.toLowerCase()){
+        if(stateValue == eventValue){
             console.log("equals")
             this.props.updateSelectedElements(this.state.chemicalElement.atomic)
             this.setShake(undefined);
@@ -195,7 +205,7 @@ class ChemicalElement extends Component {
             <div className = {'chemicalElement'}> 
                 {
                     this.state.chemicalElement !== undefined ?
-                        <div className={`periodic-table-element information ${this.state.chemicalElement.group} ${shake ? "shakeElement":""}`} >
+                        <div className={`periodic-table-element information ${this.state.chemicalElement.cssStyle} ${shake ? "shakeElement":""}`} >
                             {/*console.log(this.state.chemicalElement)*/}
                             <div className={'atomic'}>{this.state.chemicalElement.atomic}</div>
                             <div className={'symbol'}>{this.state.chemicalElement.symbol}</div>
@@ -217,7 +227,7 @@ class ChemicalElement extends Component {
                             <div className={'styleElementModal modal modal-page '}> 
                                 <div className={'box'}>
 
-                                    <div className={`box-header information ${this.state.chemicalElement.group} `}>
+                                    <div className={`box-header information ${this.state.chemicalElement.cssStyle} `}>
                                         <div className={'element-name'}>
                                         {shake?
                                             this.inputText()

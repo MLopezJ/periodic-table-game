@@ -1,0 +1,710 @@
+[
+    {
+       "atomic":1,
+       "name":"Hidrógeno",
+       "group":"Hidrógeno",
+       "cssStyle":"hydrogen"
+    },
+    {
+       "atomic":2,
+       "name":"Helio",
+       "group":"Gases nobles",
+       "cssStyle":"noble_gases"
+    },
+    {
+       "atomic":3,
+       "name":"Litio",
+       "group":"Metales alcalinos",
+       "cssStyle":"alkali_metals"
+    },
+    {
+       "atomic":4,
+       "name":"Berilio",
+       "group":"Metales alcalinoterreos",
+       "cssStyle":"alkali_earth_metals"
+    },
+    {
+       "atomic":5,
+       "name":"Boro",
+       "group":"Semimetales",
+       "cssStyle":"metalloids"
+    },
+    {
+       "atomic":6,
+       "name":"Carbono",
+       "group":"Otros no metales",
+       "cssStyle":"amphigens"
+    },
+    {
+       "atomic":7,
+       "name":"Nitrógeno",
+       "group":"Otros no metales",
+       "cssStyle":"amphigens"
+    },
+    {
+       "atomic":8,
+       "name":"Oxígeno",
+       "group":"Otros no metales",
+       "cssStyle":"amphigens"
+    },
+    {
+       "atomic":9,
+       "name":"Fluor",
+       "group":"Halógenos",
+       "cssStyle":"halogens"
+    },
+    {
+       "atomic":10,
+       "name":"Neón",
+       "group":"Gases nobles",
+       "cssStyle":"noble_gases"
+    },
+    {
+       "atomic":11,
+       "name":"Sodio",
+       "group":"Metales alcalinos",
+       "cssStyle":"alkali_metals"
+    },
+    {
+       "atomic":12,
+       "name":"Magnesio",
+       "group":"Metales alcalinoterreos",
+       "cssStyle":"alkali_earth_metals"
+    },
+    {
+       "atomic":13,
+       "name":"Aluminio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":14,
+       "name":"Silicio",
+       "group":"Semimetales",
+       "cssStyle":"metalloids"
+    },
+    {
+       "atomic":15,
+       "name":"Fósforo",
+       "group":"Otros no metales",
+       "cssStyle":"amphigens"
+    },
+    {
+       "atomic":16,
+       "name":"Azufre",
+       "group":"Otros no metales",
+       "cssStyle":"amphigens"
+    },
+    {
+       "atomic":17,
+       "name":"Cloro",
+       "group":"Halógenos",
+       "cssStyle":"halogens"
+    },
+    {
+       "atomic":18,
+       "name":"Argón",
+       "group":"Gases nobles",
+       "cssStyle":"noble_gases"
+    },
+    {
+       "atomic":19,
+       "name":"Potasio",
+       "group":"Metales alcalinos",
+       "cssStyle":"alkali_metals"
+    },
+    {
+       "atomic":20,
+       "name":"Calcio",
+       "group":"Metales alcalinoterreos",
+       "cssStyle":"alkali_earth_metals"
+    },
+    {
+       "atomic":21,
+       "name":"Escandio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":22,
+       "name":"Titanio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":23,
+       "name":"Vanadio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":24,
+       "name":"Cromo",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":25,
+       "name":"Manganeso",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":26,
+       "name":"Hierro",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":27,
+       "name":"Cobalto",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":28,
+       "name":"Niquel",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":29,
+       "name":"Cobre",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":30,
+       "name":"Cinc",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":31,
+       "name":"Galio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":32,
+       "name":"Germanio",
+       "group":"Semimetales",
+       "cssStyle":"metalloids"
+    },
+    {
+       "atomic":33,
+       "name":"Arsenico",
+       "group":"Semimetales",
+       "cssStyle":"metalloids"
+    },
+    {
+       "atomic":34,
+       "name":"Selenio",
+       "group":"Otros no metales",
+       "cssStyle":"amphigens"
+    },
+    {
+       "atomic":35,
+       "name":"Bromo",
+       "group":"Halógenos",
+       "cssStyle":"halogens"
+    },
+    {
+       "atomic":36,
+       "name":"Kriptón",
+       "group":"Gases nobles",
+       "cssStyle":"noble_gases"
+    },
+    {
+       "atomic":37,
+       "name":"Rubidio",
+       "group":"Metales alcalinos",
+       "cssStyle":"alkali_metals"
+    },
+    {
+       "atomic":38,
+       "name":"Estroncio",
+       "group":"Metales alcalinoterreos",
+       "cssStyle":"alkali_earth_metals"
+    },
+    {
+       "atomic":39,
+       "name":"Ytrio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":40,
+       "name":"Circonio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":41,
+       "name":"Niobio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":42,
+       "name":"Molibdeno",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":43,
+       "name":"Tecnecio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":44,
+       "name":"Rutenio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":45,
+       "name":"Rodio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":46,
+       "name":"Paladio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":47,
+       "name":"Plata",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":48,
+       "name":"Cadmio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":49,
+       "name":"Indio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":50,
+       "name":"Estaño",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":51,
+       "name":"Antimonio",
+       "group":"Semimetales",
+       "cssStyle":"metalloids"
+    },
+    {
+       "atomic":52,
+       "name":"Teluro",
+       "group":"Semimetales",
+       "cssStyle":"metalloids"
+    },
+    {
+       "atomic":53,
+       "name":"Yodo",
+       "group":"Halógenos",
+       "cssStyle":"halogens"
+    },
+    {
+       "atomic":54,
+       "name":"Xenón",
+       "group":"Gases nobles",
+       "cssStyle":"noble_gases"
+    },
+    {
+       "atomic":55,
+       "name":"Cesio",
+       "group":"Metales alcalinos",
+       "cssStyle":"alkali_metals"
+    },
+    {
+       "atomic":56,
+       "name":"Bario",
+       "group":"Metales alcalinoterreos",
+       "cssStyle":"alkali_earth_metals"
+    },
+    {
+       "atomic":57,
+       "name":"Lantano",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":58,
+       "name":"Cerio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":59,
+       "name":"Praseodimio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":60,
+       "name":"Neodimio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":61,
+       "name":"Prometio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":62,
+       "name":"Samario",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":63,
+       "name":"Europio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":64,
+       "name":"Gadolinio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":65,
+       "name":"Terbio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":66,
+       "name":"Disprosio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":67,
+       "name":"Holmio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":68,
+       "name":"Erbio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":69,
+       "name":"Tulio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":70,
+       "name":"Yterbio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":71,
+       "name":"Lutecio",
+       "group":"Lantánidos",
+       "cssStyle":"lanthanoids"
+    },
+    {
+       "atomic":72,
+       "name":"Hafnio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":73,
+       "name":"Tántalo",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":74,
+       "name":"Wolframio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":75,
+       "name":"Renio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":76,
+       "name":"Osmio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":77,
+       "name":"Iridio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":78,
+       "name":"Platino",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":79,
+       "name":"Oro",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":80,
+       "name":"Mercurio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":81,
+       "name":"Talio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":82,
+       "name":"Plomo",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":83,
+       "name":"Bismuto",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":84,
+       "name":"Polonio",
+       "group":"Semimetales",
+       "cssStyle":"metalloids"
+    },
+    {
+       "atomic":85,
+       "name":"Astato",
+       "group":"Halógenos",
+       "cssStyle":"halogens"
+    },
+    {
+       "atomic":86,
+       "name":"Radón",
+       "group":"Gases nobles",
+       "cssStyle":"noble_gases"
+    },
+    {
+       "atomic":87,
+       "name":"Francio",
+       "group":"Metales alcalinos",
+       "cssStyle":"alkali_metals"
+    },
+    {
+       "atomic":88,
+       "name":"Radio",
+       "group":"Metales alcalinoterreos",
+       "cssStyle":"alkali_earth_metals"
+    },
+    {
+       "atomic":89,
+       "name":"Actinio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":90,
+       "name":"Torio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":91,
+       "name":"Protactinio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":92,
+       "name":"Uranio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":93,
+       "name":"Neptunio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":94,
+       "name":"Plutonio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":95,
+       "name":"Americio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":96,
+       "name":"Curio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":97,
+       "name":"Berkelio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":98,
+       "name":"Californio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":99,
+       "name":"Einstenio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":100,
+       "name":"Fermio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":101,
+       "name":"Mendelevio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":102,
+       "name":"Nobelio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":103,
+       "name":"Lawrencio",
+       "group":"Actínidos",
+       "cssStyle":"actinoids"
+    },
+    {
+       "atomic":104,
+       "name":"Rutherfordio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":105,
+       "name":"Dubnio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":106,
+       "name":"Seaborgio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":107,
+       "name":"Bohrio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":108,
+       "name":"Hassio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":109,
+       "name":"Meitnerio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":110,
+       "name":"Darmstadio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":111,
+       "name":"Roentgenio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":112,
+       "name":"Copernicio",
+       "group":"Metales de transición",
+       "cssStyle":"transition_metals"
+    },
+    {
+       "atomic":113,
+       "name":"Nihonio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":114,
+       "name":"Flerovio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":115,
+       "name":"Moscovio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":116,
+       "name":"Livermorio",
+       "group":"Metales del bloque p",
+       "cssStyle":"basic_metals"
+    },
+    {
+       "atomic":117,
+       "name":"Téneso",
+       "group":"Halógenos",
+       "cssStyle":"halogens"
+    },
+    {
+       "atomic":118,
+       "name":"Oganesón",
+       "group":"Gases nobles",
+       "cssStyle":"noble_gases"
+    }
+ ]
