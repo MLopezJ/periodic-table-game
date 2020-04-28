@@ -7,14 +7,37 @@ import Instructions from './Components/Instructions';
 import './css/index.css'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+        showSettings: true
+    }
+    this.setShowSettings = this.setShowSettings.bind(this);
+}
+
+setShowSettings = () => {
+  this.setState({
+    showSettings: !this.state.showSettings
+  });
+}
+
   render() {
+    console.log(this.state.showSettings)
     return (
       <div className={'app'}>
         <div className={'app-content'}>
           <AppHeader/>
           <Matrix/>
-          <Footer/>
-          <Instructions/>
+          <Footer
+            setShowSettings = {this.setShowSettings}
+          />
+          if (this.state.showSettings){
+            <Instructions
+              showSettings = {this.state.showSettings}
+              setShowSettings = {this.setShowSettings}
+            />
+          }
+          
         </div>
       </div>
     );

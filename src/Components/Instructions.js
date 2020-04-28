@@ -9,7 +9,7 @@ class Modal extends Component{
     constructor() {
         super();
         this.state = { 
-            showInstructions: true
+            showInstructions: false
          };
 
          this.toggleShowInstructions = this.toggleShowInstructions.bind(this);
@@ -25,7 +25,7 @@ class Modal extends Component{
 
         return(
             <div>
-                <div className={'overlay'} onClick={this.toggleShowInstructions}></div>
+                <div className={'overlay'} onClick={this.props.setShowSettings}></div>
                 <div className={'styleElementModal modal modal-page '}> 
                     <div className={'box'}>
                             {
@@ -66,8 +66,10 @@ class Modal extends Component{
         )
     }
 
+    
+
     render(){
-        if (this.state.showInstructions){
+        if (this.props.showSettings){
             return(
                 this.instructions()
             )

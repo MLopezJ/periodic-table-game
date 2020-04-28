@@ -83,11 +83,17 @@ class Footer extends Component{
         return(
             <div>
                 {this.dedicationMessage()}
-            <div className={'footer'}>
-                <div id="authorDescription" onClick={this.toggleShowDedicationMessage}>
-                    <h1 className={'title'}>{'<MauroLopez/>'}</h1>
+                <div className={'footer'}>
+                    <div id="authorDescription" onClick={this.toggleShowDedicationMessage}>
+                        <h1 className={'title'}>{'<MauroLopez/>'}</h1>
+                    </div>
+
+                    <div id="settings" onClick={this.props.setShowSettings}>
+                        <h1 className={'title'}>{'Settings'}</h1>
+                    </div>
                 </div>
-            </div>
+
+                
             </div>
         )
     }
