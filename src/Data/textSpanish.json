@@ -1,0 +1,54 @@
+{
+    "appHeader" : {
+        "elements" :[
+            {"id":"title",
+            "text":"Tabla Periodica"}
+        ]
+    },
+
+    "footer": {
+        "elements" : [
+            {"id":"title",
+            "text":"Ajustes"}
+        ]
+    },
+
+    "instructions": {
+        "elements" : [
+            {"id":"modalTitle",
+            "text":"Ajustes"}, 
+
+            {"id":"howToPlayTitle",
+            "text":"¿Cómo jugar?"},
+
+            {"id":"languageTitle",
+            "text":"Escoger el lenguaje"}, 
+
+            {"id":"aboutTheAuthorTitle",
+            "text":"Sobre el autor"},
+
+            {"id":"exitTitle",
+            "text":"Salir"},
+
+            {"id":"back",
+            "text":"Atras"},
+
+            {"id":"instructionHowToPlay1",
+            "text":"Identifiar los elementos que se estan moviendo"},
+            {"id":"instructionHowToPlay2",
+            "text":"Hacer click en ellos"},
+            {"id":"instructionHowToPlay3",
+            "text":"Rellenar el espacio con el nombre del elemento"},
+
+            {"id":"language1",
+            "text":"Español"},
+            {"id":"language2",
+            "text":"Ingles"}, 
+
+            {"id":"author1",
+            "text":"tecno-utópico, amante del trabajo en equipo y pensador creativo."},
+            {"id":"author2",
+            "text":"Constante, innovador y dispuesto a asumir riesgos."}
+        ]
+    }
+}

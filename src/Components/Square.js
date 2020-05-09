@@ -6,6 +6,23 @@ import './../css/index.css'
 
 class Square extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            chemicalElement : undefined,
+            modalChemicalElementInformation : false, 
+            chemicalElementGroupName : undefined,
+            shake : undefined,
+            nameValue : undefined, 
+            inputShadow : undefined,
+            chemicalElementsSpanish : undefined,
+            lenguage : undefined
+        }
+
+        this.chemicalElements = require('./../Data/chemicalElements');
+        this.chemicalElementsSpanish = require('./../Data/chemicalElementsSpanish');
+    }
+
     emptySquare = () => (
         <div className={'Empty'}>
         </div>
@@ -16,12 +33,51 @@ class Square extends Component {
         </div>
     )
 
+    getElement = () => {
+        let element = Object.assign(
+            {},
+            this.chemicalElements.find(
+                item => item.atomic === this.props.positionOfSquareInFormat
+            )
+        )
+        
+        if (this.props.lenguage === "Spanish"){
+            const elementSpanish = this.chemicalElementsSpanish.find(item => item.atomic === this.props.positionOfSquareInFormat)
+            element.name = elementSpanish.name;
+            element.group = elementSpanish.group;
+        }
+
+        return element
+
+    }
+
+    prettyGroupName(groupName){
+        groupName =  groupName.charAt(0).toUpperCase() + groupName.slice(1)
+        var index
+        var indicator = true
+        while(indicator){
+            index = groupName.indexOf('_')
+            if (index === -1)
+                indicator = false;
+            else{
+                groupName  = groupName.substr(0,index)+' '+ groupName.substr(index+1, groupName.length-1)
+            }  
+        }
+        
+        return groupName
+    }
+
     ChemicalElement = () => {
+        const element = this.getElement();
+        const chemicalElementGroupName = this.prettyGroupName(element.group);
+        
         return(
             <ChemicalElement
-                atomicNumber = {this.props.positionOfSquareInFormat}
+                element = {element}
+                chemicalElementGroupName = {chemicalElementGroupName}
                 selectedElements = {this.props.selectedElements}
                 updateSelectedElements = {this.props.updateSelectedElements}
+                lenguage = {this.props.lenguage}
             />
         )
     }

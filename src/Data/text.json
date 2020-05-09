@@ -1,0 +1,54 @@
+{
+    "appHeader" : {
+        "elements" :[
+            {"id":"title",
+            "text":"Periodic Table"}
+        ]
+    },
+
+    "footer": {
+        "elements" : [
+            {"id":"title",
+            "text":"Settings"}
+        ]
+    },
+
+    "instructions": {
+        "elements" : [
+            {"id":"modalTitle",
+            "text":"Settings"}, 
+
+            {"id":"howToPlayTitle",
+            "text":"How to play?"},
+
+            {"id":"languageTitle",
+            "text":"Choose a lenguage"}, 
+
+            {"id":"aboutTheAuthorTitle",
+            "text":"About the author"},
+
+            {"id":"exitTitle",
+            "text":"Exit"},
+
+            {"id":"back",
+            "text":"Back"},
+
+            {"id":"instructionHowToPlay1",
+            "text":"Identify the elements that are shaking"},
+            {"id":"instructionHowToPlay2",
+            "text":"Click on them"},
+            {"id":"instructionHowToPlay3",
+            "text":"Fill the correct name of the element"}, 
+
+            {"id":"language1",
+            "text":"Spanish"},
+            {"id":"language2",
+            "text":"English"},
+
+            {"id":"author1",
+            "text":"Techno utopian, enthusiastic team player and deep creative thinker."},
+            {"id":"author2",
+            "text":"Constant, innovator and willing to take challenges."}
+        ]
+    }
+}

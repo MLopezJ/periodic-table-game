@@ -9,24 +9,20 @@ class ChemicalElement extends Component {
     constructor() {
         super();
         this.state = {
-            chemicalElement : undefined,
             modalChemicalElementInformation : false, 
-            chemicalElementGroupName : undefined,
             shake : undefined,
             nameValue : undefined, 
-            inputShadow : undefined,
-            chemicalElementsSpanish : undefined
+            inputShadow : undefined
         }
 
-        this.setChemicalElement = this.setChemicalElement.bind(this);
+        
         this.toggleModalChemicalElementInformation = this.toggleModalChemicalElementInformation.bind(this);
-        this.prettyGroupName = this.prettyGroupName.bind(this);
-        this.chemicalElements = require('./../Data/chemicalElements');
         this.shake = this.setShake.bind(this);
         this.nameValue = this.handleTextChange.bind(this);
         this.inputShadow = this.setInputShadow.bind(this);
-        this.chemicalElementsSpanish = require('./../Data/chemicalElementsSpanish')
     }
+
+    
 
     setInputShadow = (state) => {
         this.setState({
@@ -40,45 +36,12 @@ class ChemicalElement extends Component {
         });
     }
 
-    prettyGroupName(groupName){
-        groupName =  groupName.charAt(0).toUpperCase() + groupName.slice(1)
-        var index
-        var indicator = true
-        while(indicator){
-            index = groupName.indexOf('_')
-            if (index === -1)
-                indicator = false;
-            else{
-                groupName  = groupName.substr(0,index)+' '+ groupName.substr(index+1, groupName.length-1)
-            }  
-        }
-        //console.log(groupName)
-        this.setState({
-            chemicalElementGroupName: groupName
-        });
-    }
-
     toggleModalChemicalElementInformation(){
-        this.prettyGroupName(this.state.chemicalElement.group)
         this.setState({
             modalChemicalElementInformation: !this.state.modalChemicalElementInformation
         });
     }
 
-    setChemicalElement(element){
-        this.setState({
-            chemicalElement: element
-        });
-    }
-    
-    componentDidMount = () =>{
-        const element = this.chemicalElements.find(item => item.atomic === this.props.atomicNumber)
-        const elementSpanish = this.chemicalElementsSpanish.find(item => item.atomic === this.props.atomicNumber)
-        element.name = elementSpanish.name;
-        element.group = elementSpanish.group;
-        
-        this.setChemicalElement(element)
-    }
 
     info = (title, description) => {
         return(
@@ -97,7 +60,7 @@ class ChemicalElement extends Component {
         let shake = null
         if (this.props.selectedElements){
             
-            shake = this.props.selectedElements.indexOf(this.state.chemicalElement.atomic) === -1 ? false : "shake" ;
+            shake = this.props.selectedElements.indexOf(this.props.element.atomic) === -1 ? false : "shake" ;
             
             if (shake){
                 this.setShake(true);
@@ -151,9 +114,9 @@ class ChemicalElement extends Component {
         this.handleTextChange(event.target.value)
 
         const eventValue = event.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-        const stateValue = this.state.chemicalElement.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        const stateValue = this.props.element.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
 
-        console.log("name ",this.state.chemicalElement.name)
+        console.log("name ",this.props.element.name)
 
         var similarity = this.similarity(stateValue,eventValue)
         
@@ -175,7 +138,7 @@ class ChemicalElement extends Component {
 
         if(stateValue == eventValue){
             console.log("equals")
-            this.props.updateSelectedElements(this.state.chemicalElement.atomic)
+            this.props.updateSelectedElements(this.props.element.atomic)
             this.setShake(undefined);
         }
         
@@ -195,6 +158,7 @@ class ChemicalElement extends Component {
     
 
     render(){
+        
         const { shake } = this.state;
 
         if(!this.state.shake){
@@ -204,15 +168,15 @@ class ChemicalElement extends Component {
         return(
             <div className = {'chemicalElement'}> 
                 {
-                    this.state.chemicalElement !== undefined ?
-                        <div className={`periodic-table-element information ${this.state.chemicalElement.cssStyle} ${shake ? "shakeElement":""}`} >
-                            {/*console.log(this.state.chemicalElement)*/}
-                            <div className={'atomic'}>{this.state.chemicalElement.atomic}</div>
-                            <div className={'symbol'}>{this.state.chemicalElement.symbol}</div>
+                    this.props.element !== undefined ?
+                        <div className={`periodic-table-element information ${this.props.element.cssStyle} ${shake ? "shakeElement":""}`} >
+                            {/*console.log(this.this.props.element)*/}
+                            <div className={'atomic'}>{this.props.element.atomic}</div>
+                            <div className={'symbol'}>{this.props.element.symbol}</div>
                             {shake?
                                 <div className={'name'}>??</div>
                             :
-                                <div className={'name'}>{this.state.chemicalElement.name}</div>
+                                <div className={'name'}>{this.props.element.name}</div>
                             }             
                             <canvas onClick={this.toggleModalChemicalElementInformation} className="ink"></canvas>
                         </div>
@@ -227,18 +191,18 @@ class ChemicalElement extends Component {
                             <div className={'styleElementModal modal modal-page '}> 
                                 <div className={'box'}>
 
-                                    <div className={`box-header information ${this.state.chemicalElement.cssStyle} `}>
+                                    <div className={`box-header information ${this.props.element.cssStyle} `}>
                                         <div className={'element-name'}>
                                         {shake?
                                             this.inputText()
                                         :
-                                            this.state.chemicalElement.name
+                                            this.props.element.name
                                         } 
                                             
                                         </div>
 
                                         <div className={'element-group'}>
-                                            {this.state.chemicalElementGroupName}
+                                            {this.props.chemicalElementGroupName}
                                             
                                         </div>
                                     </div>
@@ -246,58 +210,58 @@ class ChemicalElement extends Component {
                                     <div className={'box-body'}>
 
                                         {
-                                            this.state.chemicalElement.atomic !== null && 
-                                            this.info("Atomic Number", this.state.chemicalElement.atomic) 
+                                            this.props.element.atomic !== null && 
+                                            this.info("Atomic Number", this.props.element.atomic) 
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.symbol &&
-                                            this.info("Symbol", this.state.chemicalElement.symbol)
+                                            this.props.element.symbol &&
+                                            this.info("Symbol", this.props.element.symbol)
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.atomicMass &&
-                                            this.info("Mass", this.state.chemicalElement.atomicMass)
+                                            this.props.element.atomicMass &&
+                                            this.info("Mass", this.props.element.atomicMass)
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.electronicConfiguration &&
-                                            this.info("Electronic Conf.", this.state.chemicalElement.electronicConfiguration)
+                                            this.props.element.electronicConfiguration &&
+                                            this.info("Electronic Conf.", this.props.element.electronicConfiguration)
                                         }
 
                                         {
-                                            this.state.chemicalElement.electronegativity &&
-                                            this.info("Electronegativity", this.state.chemicalElement.electronegativity)
+                                            this.props.element.electronegativity &&
+                                            this.info("Electronegativity", this.props.element.electronegativity)
                                         }
 
                                         {
-                                            this.state.chemicalElement.atomicRadius &&
-                                            this.info("Atomic Radius", this.state.chemicalElement.atomicRadius)
+                                            this.props.element.atomicRadius &&
+                                            this.info("Atomic Radius", this.props.element.atomicRadius)
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.ionRadius &&
-                                            this.info("Ionic Radius", `${this.state.chemicalElement.ionRadius} pm`)
+                                            this.props.element.ionRadius &&
+                                            this.info("Ionic Radius", `${this.props.element.ionRadius} pm`)
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.vanDelWaalsRadius !== null &&
-                                            this.info("Van der Waals Radius", `${this.state.chemicalElement.vanDelWaalsRadius} pm`)
+                                            this.props.element.vanDelWaalsRadius !== null &&
+                                            this.info("Van der Waals Radius", `${this.props.element.vanDelWaalsRadius} pm`)
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.ionizationEnergy &&
-                                            this.info("Ionic Energic", `${this.state.chemicalElement.ionizationEnergy} mol`)
+                                            this.props.element.ionizationEnergy &&
+                                            this.info("Ionic Energic", `${this.props.element.ionizationEnergy} mol`)
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.electronAffinity !== null &&
-                                            this.info("Electronic affinity", this.state.chemicalElement.electronAffinity)
+                                            this.props.element.electronAffinity !== null &&
+                                            this.info("Electronic affinity", this.props.element.electronAffinity)
                                         }
                                         
                                         {
-                                            this.state.chemicalElement.oxidationStates &&
-                                            this.info("Oxidation state", this.state.chemicalElement.oxidationStates)
+                                            this.props.element.oxidationStates &&
+                                            this.info("Oxidation state", this.props.element.oxidationStates)
                                         }
                                         
                                     </div>

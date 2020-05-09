@@ -91,6 +91,7 @@ class Matrix extends Component {
                                 positionOfSquareInFormat = {cellIndex}
                                 selectedElements= {this.state.selectedElements}
                                 updateSelectedElements = {this.updateSelectedElements}
+                                lenguage = {this.props.lenguage}
                             />
                         )
                     })}

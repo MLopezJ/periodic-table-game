@@ -12,10 +12,45 @@ class Footer extends Component{
     constructor() {
         super();
         this.state = { 
-            showDedicationMessage: false
+            showDedicationMessage: false,
+            title : undefined,
+            language : undefined
          };
 
-         this.toggleShowDedicationMessage = this.toggleShowDedicationMessage.bind(this);
+        this.toggleShowDedicationMessage = this.toggleShowDedicationMessage.bind(this);
+        this.setTitle = this.setTitle.bind(this);
+        this.toggleLanguage = this.toggleLanguage.bind(this);   
+    }
+
+    setTitle = () => {
+        const title = this.props.text.elements.find(
+            item => item.id === "title"
+        )
+        
+        this.setState({
+            title: title.text
+        });
+    }
+
+    toggleLanguage = (language) => {
+        this.setState({
+            language : language
+        });
+    }
+
+    setLanguage = () => {
+        this.toggleLanguage(this.props.language)
+        this.setTitle();
+    }
+
+    componentDidMount = () => {
+        this.setLanguage()
+    }
+
+    componentDidUpdate = (prevProps, prevState, snapshot) => {
+        if (prevProps.language == this.props.language & this.props.language != this.state.language){
+            this.setLanguage()
+        }
     }
 
     toggleShowDedicationMessage() {
@@ -53,6 +88,19 @@ class Footer extends Component{
                             }
 
                         <div className={'box-body'}>
+
+                             
+                            {
+                                <div className={'box-body-information-footer information basic_metals'}>
+                                Enthusiastic team player, techno utopian and deep creative thinker.
+                                </div>  
+                            }
+                            {
+                                <div className={'box-body-information-footer information actinoids'}>
+                                Constant, dynamic and willing to take challenges.
+                                </div>  
+                            }
+
                             {
                                 <div className={'box-body-information-footer information amphigens'}>
                                 Mail: lopezjimenezmauro05@gmail.com
@@ -89,7 +137,7 @@ class Footer extends Component{
                     </div>
 
                     <div id="settings" onClick={this.props.setShowSettings}>
-                        <h1 className={'title'}>{'Settings'}</h1>
+                        <h1 className={'title'}>{this.state.title}</h1>
                     </div>
                 </div>
 

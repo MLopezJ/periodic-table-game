@@ -10,9 +10,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-        showSettings: true
+        showSettings: true,
+        language: "Spanish",
+        text : require('./Data/textSpanish.json')
     }
     this.setShowSettings = this.setShowSettings.bind(this);
+    this.toggleLenguage = this.toggleLenguage.bind(this);
+    this.textEnglish = require('./Data/text.json');
+    this.textSpanish = require('./Data/textSpanish.json');
+}
+
+toggleText = () => {
+  const text = this.state.language === "Spanish" ? this.textSpanish : this.textEnglish;
+  
+  this.setState({
+    text: text
+  });
 }
 
 setShowSettings = () => {
@@ -21,22 +34,53 @@ setShowSettings = () => {
   });
 }
 
+toggleLenguage = (language) => {
+  this.setState({
+    language: language
+  });
+}
+
+changeLanguage = (language) => {
+  this.toggleLenguage(language);
+  this.toggleText();
+}
+
+componentDidMount = () => {
+  this.toggleText();
+}
+
+componentDidUpdate = (prevProps, prevState, snapshot) => {
+  
+  if(prevState.language !=  this.state.language){
+    this.toggleText();
+  }
+}
+
   render() {
-    console.log(this.state.showSettings)
+    
     return (
       <div className={'app'}>
         <div className={'app-content'}>
-          <AppHeader/>
-          <Matrix/>
+          <AppHeader
+            text = {this.state.text.appHeader}
+            language = {this.state.language}
+          />
+          <Matrix
+            lenguage = {this.state.language}
+          />
           <Footer
             setShowSettings = {this.setShowSettings}
+            text = {this.state.text.footer}
+            language = {this.state.language}
           />
-          if (this.state.showSettings){
-            <Instructions
-              showSettings = {this.state.showSettings}
-              setShowSettings = {this.setShowSettings}
-            />
-          }
+          <Instructions
+            showSettings = {this.state.showSettings}
+            setShowSettings = {this.setShowSettings}
+            text = {this.state.text.instructions} 
+            language = {this.state.language}
+            toggleLenguage = {this.changeLanguage}
+          />
+         
           
         </div>
       </div>
