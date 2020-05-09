@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/periodic-table-game/static/js/runtime~main.3a5b0c3f.js"
   },
   {
-    "revision": "077dbc6f9cb25e956abc",
-    "url": "/periodic-table-game/static/js/main.077dbc6f.chunk.js"
+    "revision": "a9137c69a9e93442cb12",
+    "url": "/periodic-table-game/static/js/main.a9137c69.chunk.js"
   },
   {
     "revision": "eea54458a8787902e38f",
     "url": "/periodic-table-game/static/js/1.eea54458.chunk.js"
   },
   {
-    "revision": "077dbc6f9cb25e956abc",
-    "url": "/periodic-table-game/static/css/main.ac5b21ff.chunk.css"
+    "revision": "a9137c69a9e93442cb12",
+    "url": "/periodic-table-game/static/css/main.aa87b3fc.chunk.css"
   },
   {
-    "revision": "8e58134176f6987ddb4f2b92f72c5bc9",
+    "revision": "0aaa2fef00fef3eb856a7e45c62ced98",
     "url": "/periodic-table-game/index.html"
   }
 ];
