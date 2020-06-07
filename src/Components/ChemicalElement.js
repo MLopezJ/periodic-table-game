@@ -114,7 +114,7 @@ class ChemicalElement extends Component {
 
         const eventValue = event.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
         const stateValue = this.props.element.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
+        console.log("name ",this.props.element.name)
         var similarity = this.similarity(stateValue,eventValue)
         
         if (event.target.value.length === 0){
@@ -167,7 +167,7 @@ class ChemicalElement extends Component {
                 {
                     this.props.element !== undefined ?
                         <div className={`periodic-table-element information ${this.props.element.cssStyle} ${shake ? "shakeElement":""}`} >
-                            {/*console.log(this.this.props.element)*/}
+                            
                             <div className={'atomic'}>{this.props.element.atomic}</div>
                             <div className={'symbol'}>{this.props.element.symbol}</div>
                             {shake?
