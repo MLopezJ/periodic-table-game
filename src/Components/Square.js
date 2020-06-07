@@ -77,7 +77,7 @@ class Square extends Component {
                 chemicalElementGroupName = {chemicalElementGroupName}
                 selectedElements = {this.props.selectedElements}
                 updateSelectedElements = {this.props.updateSelectedElements}
-                lenguage = {this.props.lenguage}
+                text = {this.props.text}
             />
         )
     }

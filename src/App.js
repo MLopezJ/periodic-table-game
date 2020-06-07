@@ -67,6 +67,7 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
           />
           <Matrix
             lenguage = {this.state.language}
+            text = {this.state.text.elementModal}
           />
           <Footer
             setShowSettings = {this.setShowSettings}

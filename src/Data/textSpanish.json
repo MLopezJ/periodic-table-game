@@ -50,5 +50,19 @@
             {"id":"author2",
             "text":"Constante, innovador y dispuesto a asumir riesgos."}
         ]
+    }, 
+
+    "elementModal" : {
+        "atomicNumber":"Número atómico",
+        "symbol":"Símbolo",
+        "mass":"Masa",
+        "electronicConf":"Conf. Electronica",
+        "electronegativity":"Electronegatividad",
+        "atomicRadius":"Radio Atómico ",
+        "ionicRadius":"Radio Ionico",
+        "vanDerWaalsRadius":"Radio Van der Waals", 
+        "ionicEnergic":"Energía Ionica",
+        "electronicAffinity":"Afinidad Electronica",
+        "oxidationState":"Estado de oxidación"
     }
 }
