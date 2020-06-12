@@ -11,14 +11,6 @@ class Matrix extends Component {
             generatedSelectedElements: false
         }
         this.matrixFormat = require('./../Data/format.json');
-        this.selectedElements= this.setSelectedElements.bind(this);
-        this.generatedSelectedElements= this.setGeneratedSelectedElements.bind(this);
-    }
-
-    updateSelectedElements = (id) => {
-        const list = this.state.selectedElements; 
-        const newList = list.filter(index => index != id)
-        this.setSelectedElements(newList);
     }
 
     setGeneratedSelectedElements= () => {
@@ -27,20 +19,8 @@ class Matrix extends Component {
         });
     }
 
-    generatedList = () => {
-        var arr = [];
-        while(arr.length < 3){
-            var r = Math.floor(Math.random() * 118) + 1;
-            if(arr.indexOf(r) === -1) arr.push(r);
-        }
-        this.setSelectedElements(arr);
-    }
-
-    setSelectedElements(arr){
-        
-        this.setState({
-            selectedElements: arr
-        });
+    generatedList = async() => {
+        this.props.createElementsToGuess()
         if (!this.state.generatedSelectedElements){
             this.setGeneratedSelectedElements();
         }
@@ -89,10 +69,11 @@ class Matrix extends Component {
                         return(
                             <Square
                                 positionOfSquareInFormat = {cellIndex}
-                                selectedElements= {this.state.selectedElements}
-                                updateSelectedElements = {this.updateSelectedElements}
+                                elementsToGuess= {this.props.elementsToGuess}
+                                updateElementsToGuess = {this.props.updateElementsToGuess}
                                 lenguage = {this.props.lenguage}
                                 text = {this.props.text}
+                                setCuriousFact = {this.props.setCuriousFact}
                             />
                         )
                     })}
@@ -110,14 +91,21 @@ class Matrix extends Component {
             this.generatedList()
         }
 
-        return(
-            <div className="periodic-table">
-                <div className="table">
-                {this.numberOfColumns()}
-                {this.matrixRows()}
+        if (this.props.elementsToGuess){
+            return(
+                <div className="periodic-table">
+                    <div className="table">
+                    {this.numberOfColumns()}
+                    {this.matrixRows()}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        else{
+            // return loading view
+            return( null )
+        }
+        
     }
     
 

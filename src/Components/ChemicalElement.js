@@ -57,6 +57,7 @@ class ChemicalElement extends Component {
 
     checkShake = () => {
         let shake = null
+        /*
         if (this.props.selectedElements){
             
             shake = this.props.selectedElements.indexOf(this.props.element.atomic) === -1 ? false : "shake" ;
@@ -65,6 +66,20 @@ class ChemicalElement extends Component {
                 this.setShake(true);
             }
         }
+        */
+
+        
+        if (this.props.elementsToGuess){
+            const index = this.props.elementsToGuess.findIndex(element => element.id === this.props.element.atomic);
+            const shakeA = index === -1 ? false : true ;
+            
+            if (shakeA && !this.props.elementsToGuess[index].guessed){
+                this.setShake(true);
+            }
+        }
+
+
+
     }
 
     similarity = (s1, s2) => {
@@ -135,8 +150,14 @@ class ChemicalElement extends Component {
 
         if(stateValue == eventValue){
             console.log("equals")
-            this.props.updateSelectedElements(this.props.element.atomic)
+            this.props.updateElementsToGuess(
+                this.props.elementsToGuess, 
+                this.props.element.atomic, 
+                "guessed", 
+                true
+            )
             this.setShake(undefined);
+            this.props.setCuriousFact(this.props.element.atomic);
         }
         
     }

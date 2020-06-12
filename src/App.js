@@ -12,12 +12,59 @@ class App extends Component {
     this.state = {
         showSettings: true,
         language: "Spanish",
-        text : require('./Data/textSpanish.json')
+        text : require('./Data/textSpanish.json'), 
+        elementsToGuess : undefined
     }
     this.setShowSettings = this.setShowSettings.bind(this);
     this.toggleLenguage = this.toggleLenguage.bind(this);
+    this.setElementsToGuess = this.setElementsToGuess.bind(this);
+    this.updateElementsToGuess = this.updateElementsToGuess.bind(this);
     this.textEnglish = require('./Data/text.json');
     this.textSpanish = require('./Data/textSpanish.json');
+}
+
+setElementsToGuess = (arr) => {
+  this.setState({
+    elementsToGuess: arr
+  });
+}
+
+createElementsToGuess = () => {
+  var arr = [];
+  while(arr.length < 3){
+    var id = Math.floor(Math.random() * 118) + 1;
+    var element = {
+        id: id,
+        guessed : false,
+        curiousFact : null
+    }
+    if((arr.findIndex(element => element.id === id)) === -1 ) arr.push(element);
+  }
+  this.setElementsToGuess(arr);
+}
+
+updateElementsToGuess = (arr, id, attribute, value) => {
+  var index = arr.findIndex(element => element.id === id) 
+  if (index !== -1){
+    arr[index][attribute] = value
+  }
+  this.setElementsToGuess(arr);
+}
+
+setCuriousFact = (id) => {
+  const curiousFact = "something"; // add custom curious fact 
+  this.updateElementsToGuess(this.state.elementsToGuess, id, "curiousFact", curiousFact);
+  this.checkElementsGuessState();
+}
+
+checkElementsGuessState = () => {
+  const allElementsGuessed = this.state.elementsToGuess.every( element => {
+    return element.guessed === true ;
+  })
+
+  if (allElementsGuessed){
+    console.log("FINISH GAME. SHOW CURIOUS FACTS");
+  }
 }
 
 toggleText = () => {
@@ -68,6 +115,10 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
           <Matrix
             lenguage = {this.state.language}
             text = {this.state.text.elementModal}
+            elementsToGuess = {this.state.elementsToGuess}
+            createElementsToGuess = {this.createElementsToGuess}
+            updateElementsToGuess = {this.updateElementsToGuess}
+            setCuriousFact = {this.setCuriousFact}
           />
           <Footer
             setShowSettings = {this.setShowSettings}
