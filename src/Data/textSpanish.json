@@ -64,5 +64,9 @@
         "ionicEnergic":"Energía Ionica",
         "electronicAffinity":"Afinidad Electronica",
         "oxidationState":"Estado de oxidación"
+    }, 
+
+    "endOfGame" : {
+        "congrats": "Felicidades!"
     }
 }
