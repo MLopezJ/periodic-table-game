@@ -24,6 +24,8 @@ class App extends Component {
     this.updateElementsToGuess = this.updateElementsToGuess.bind(this);
     this.textEnglish = require('./Data/text.json');
     this.textSpanish = require('./Data/textSpanish.json');
+    this.startTime = undefined;
+    this.timeElapsed = undefined;
 }
 
 setEndOfGame = () => {
@@ -73,6 +75,10 @@ checkElementsGuessState = () => {
 
   if (allElementsGuessed){
     console.log("FINISH GAME. SHOW CURIOUS FACTS");
+    var timeElapsedMillis = Math.abs(new Date() - this.startTime);
+    var timeElapsed = this.millisToMinutesAndSeconds(timeElapsedMillis);
+    console.log("timmer: ", timeElapsed);
+    this.timeElapsed = timeElapsed;
     this.setEndOfGame();
   }
 }
@@ -85,10 +91,26 @@ toggleText = () => {
   });
 }
 
+millisToMinutesAndSeconds = (millis) => {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = ((millis % 60000) / 1000).toFixed(0);
+  return minutes + " minutes :" + (seconds < 10 ? '0' : '') + seconds + " seconds";
+}
+
 setShowSettings = () => {
   this.setState({
     showSettings: !this.state.showSettings
   });
+  if (this.startTime === undefined){
+    console.log("start time :) ");
+    this.startTime = new Date();
+  }
+  else{
+    var diff = Math.abs(new Date() - this.startTime);
+    var result = this.millisToMinutesAndSeconds(diff);
+    console.log("timmer: ", result);
+  }
+  
 }
 
 toggleLenguage = (language) => {
@@ -144,6 +166,7 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
           />
           <EndOfGame
             showModal = {this.state.endOfGame}
+            timeElapsed = {this.timeElapsed}
           />
         </div>
       </div>
