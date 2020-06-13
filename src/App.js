@@ -92,9 +92,10 @@ toggleText = () => {
 }
 
 millisToMinutesAndSeconds = (millis) => {
-  var minutes = Math.floor(millis / 60000);
-  var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return minutes + " minutes :" + (seconds < 10 ? '0' : '') + seconds + " seconds";
+  const minutes = Math.floor(millis / 60000);
+  const seconds = ((millis % 60000) / 1000).toFixed(0);
+  const time = [minutes, seconds];
+  return time;
 }
 
 setShowSettings = () => {
@@ -104,13 +105,15 @@ setShowSettings = () => {
   if (this.startTime === undefined){
     console.log("start time :) ");
     this.startTime = new Date();
-  }
+  } 
   else{
-    var diff = Math.abs(new Date() - this.startTime);
-    var result = this.millisToMinutesAndSeconds(diff);
-    console.log("timmer: ", result);
-  }
-  
+    console.log("FINISH GAME. SHOW CURIOUS FACTS");
+    var timeElapsedMillis = Math.abs(new Date() - this.startTime);
+    var timeElapsed = this.millisToMinutesAndSeconds(timeElapsedMillis);
+    console.log("timmer: ", timeElapsed);
+    this.timeElapsed = timeElapsed;
+    this.setEndOfGame();
+  } 
 }
 
 toggleLenguage = (language) => {
@@ -165,6 +168,8 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
             toggleLenguage = {this.changeLanguage}
           />
           <EndOfGame
+            text = {this.state.text.endOfGame}
+            language = {this.state.language}
             showModal = {this.state.endOfGame}
             timeElapsed = {this.timeElapsed}
           />

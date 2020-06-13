@@ -67,6 +67,19 @@
     }, 
 
     "endOfGame" : {
-        "congrats": "Congrats!"
+        "elements" : [
+            {"id":"title",
+            "text":"Congrats"},
+            {"id":"minutes",
+            "text":"minutes"},
+            {"id":"seconds",
+            "text":"seconds"},
+            {"id":"time",
+            "text":"Time"},
+            {"id":"objetiveCompleted",
+            "text":"Objective successfully completed"},
+            {"id":"playAgain",
+            "text":"Play again"}
+        ]
     }
 }

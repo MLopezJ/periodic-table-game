@@ -8,6 +8,137 @@ class EndOfGame extends Component{
 
     constructor() {
         super();
+
+        this.state = {
+            title : undefined,
+            time: undefined,
+            minutes : undefined,
+            seconds : undefined,
+            objetiveCompleted : undefined,
+            language : undefined, 
+            playAgain : undefined
+        }
+
+        this.setTitle = this.setTitle.bind(this);
+        this.setMinutes = this.setMinutes.bind(this);
+        this.setTime = this.setTime.bind(this);
+        this.setSeconds = this.setSeconds.bind(this);
+        this.setObjetiveCompleted = this.setObjetiveCompleted.bind(this);
+        this.setPlayAgain = this.setPlayAgain.bind(this);
+        this.toggleLanguage = this.toggleLanguage.bind(this);
+    }
+
+    setTitle = () => {
+        const title = this.props.text.elements.find(
+            item => item.id === "title"
+        )
+        
+        this.setState({
+            title: title.text
+        });
+    }
+
+    setTime = () => {
+        const time = this.props.text.elements.find(
+            item => item.id === "time"
+        )
+        
+        this.setState({
+            time: time.text
+        });
+    }
+
+    setMinutes = () => {
+        const minutes = this.props.text.elements.find(
+            item => item.id === "minutes"
+        )
+        
+        this.setState({
+            minutes: minutes.text
+        });
+    }
+
+    setSeconds = () => {
+        const seconds = this.props.text.elements.find(
+            item => item.id === "seconds"
+        )
+        
+        this.setState({
+            seconds: seconds.text
+        });
+    }
+
+    setObjetiveCompleted = () => {
+        const objetiveCompleted = this.props.text.elements.find(
+            item => item.id === "objetiveCompleted"
+        )
+        
+        this.setState({
+            objetiveCompleted: objetiveCompleted.text
+        });
+    }
+
+    setPlayAgain = () => {
+        const playAgain = this.props.text.elements.find(
+            item => item.id === "playAgain"
+        )
+        
+        this.setState({
+            playAgain: playAgain.text
+        });
+    }
+
+    toggleLanguage = (language) => {
+        this.setState({
+            language : language
+        });
+    }
+
+    setLanguage = () => {
+        
+        this.toggleLanguage(this.props.language)
+        this.setTitle();
+        this.setTime();
+        this.setMinutes();
+        this.setSeconds();
+        this.setObjetiveCompleted();
+        this.setPlayAgain();
+    }
+
+    showTime = () => {
+        const text = this.props.timeElapsed[0] > 0 ? 
+            this.props.timeElapsed[0] + " " + this.state.minutes + " : " + this.props.timeElapsed[1] + " " + this.state.seconds
+            :
+            this.props.timeElapsed[1] + " " + this.state.seconds
+
+        return(
+            <div className={'box-body-information-footer information noble_gases'}>
+            {this.state.time} = {text}
+            </div> 
+        )
+    }
+
+    reloadPage = () => {
+        window.location.reload()
+    }
+
+    playAgain = () => {
+        return(
+            <div className={'box-body-information-footer information transition_metals'}
+            onClick = {this.reloadPage}>
+                {this.state.playAgain}
+            </div> 
+        ) 
+    }
+
+    componentDidMount = () => {
+        this.setLanguage()
+    }
+
+    componentDidUpdate = (prevProps, prevState, snapshot) => {
+        if (prevProps.language == this.props.language & this.props.language != this.state.language){
+            this.setLanguage()
+        }
     }
 
     modal = () => {
@@ -23,7 +154,7 @@ class EndOfGame extends Component{
                             <div className={'box-header information alkali_metals'}>
                 
                                 <div className={'element-name'}>
-                                    {`MODAL`}
+                                    {this.state.title}
                                 </div>
 
                             </div>
@@ -35,18 +166,15 @@ class EndOfGame extends Component{
                         <div className={'box-body'}>
                             {
                                 <div className={'box-body-information-footer information amphigens'}>
-                                1: "Something"
+                                {this.state.objetiveCompleted}
                                 </div>  
                             }
                             {
-                                <div className={'box-body-information-footer information noble_gases'}>
-                                2: "Something"
-                                </div>  
+                                this.showTime()
                             }
+
                             {
-                                <div className={'box-body-information-footer information transition_metals'}>
-                                3: "Something"
-                                </div>  
+                                this.playAgain()
                             }
                         </div>
 
