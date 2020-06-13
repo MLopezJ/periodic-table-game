@@ -105,15 +105,7 @@ setShowSettings = () => {
   if (this.startTime === undefined){
     console.log("start time :) ");
     this.startTime = new Date();
-  } 
-  else{
-    console.log("FINISH GAME. SHOW CURIOUS FACTS");
-    var timeElapsedMillis = Math.abs(new Date() - this.startTime);
-    var timeElapsed = this.millisToMinutesAndSeconds(timeElapsedMillis);
-    console.log("timmer: ", timeElapsed);
-    this.timeElapsed = timeElapsed;
-    this.setEndOfGame();
-  } 
+  }
 }
 
 toggleLenguage = (language) => {
