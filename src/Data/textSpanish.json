@@ -64,5 +64,22 @@
         "ionicEnergic":"Energía Ionica",
         "electronicAffinity":"Afinidad Electronica",
         "oxidationState":"Estado de oxidación"
+    }, 
+
+    "endOfGame" : {
+        "elements" : [
+            {"id":"title",
+            "text":"!Felicidades!"},
+            {"id":"minutes",
+            "text":"minutos"},
+            {"id":"seconds",
+            "text":"segundos"},
+            {"id":"time",
+            "text":"Tiempo"},
+            {"id":"objetiveCompleted",
+            "text":"Objetivo completado satisfactoriamente"}, 
+            {"id":"playAgain",
+            "text":"Jugar nuevamente"}
+        ]
     }
 }
