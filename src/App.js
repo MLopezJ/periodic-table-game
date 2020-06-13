@@ -3,6 +3,7 @@ import Matrix from './Components/Matrix';
 import AppHeader from './Components/AppHeader';
 import Footer from './Components/Footer';
 import Instructions from './Components/Instructions';
+import EndOfGame from './Components/EndOfGame';
 //import './App.css';
 import './css/index.css'
 
@@ -13,14 +14,22 @@ class App extends Component {
         showSettings: true,
         language: "Spanish",
         text : require('./Data/textSpanish.json'), 
-        elementsToGuess : undefined
+        elementsToGuess : undefined, 
+        endOfGame : false
     }
     this.setShowSettings = this.setShowSettings.bind(this);
     this.toggleLenguage = this.toggleLenguage.bind(this);
     this.setElementsToGuess = this.setElementsToGuess.bind(this);
+    this.setEndOfGame = this.setEndOfGame.bind(this);
     this.updateElementsToGuess = this.updateElementsToGuess.bind(this);
     this.textEnglish = require('./Data/text.json');
     this.textSpanish = require('./Data/textSpanish.json');
+}
+
+setEndOfGame = () => {
+  this.setState({
+    endOfGame: !this.state.endOfGame
+  });
 }
 
 setElementsToGuess = (arr) => {
@@ -64,6 +73,7 @@ checkElementsGuessState = () => {
 
   if (allElementsGuessed){
     console.log("FINISH GAME. SHOW CURIOUS FACTS");
+    this.setEndOfGame();
   }
 }
 
@@ -132,8 +142,9 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
             language = {this.state.language}
             toggleLenguage = {this.changeLanguage}
           />
-         
-          
+          <EndOfGame
+            showModal = {this.state.endOfGame}
+          />
         </div>
       </div>
     );
