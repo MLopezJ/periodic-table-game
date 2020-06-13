@@ -107,7 +107,7 @@ class Modal extends Component{
     }
 
     componentDidUpdate = (prevProps, prevState, snapshot) => {
-        console.log(prevProps.language , this.props.language , this.state.language)
+        
         if (prevProps.language == this.props.language & this.props.language != this.state.language){
             this.setLanguage(true)
         }
@@ -323,7 +323,7 @@ class Modal extends Component{
     
 
     render(){
-        console.log(this.state.showHowtoPlay)
+        
         if (this.props.showSettings){
             return(
                 this.modal()

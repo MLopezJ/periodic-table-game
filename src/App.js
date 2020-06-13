@@ -3,6 +3,7 @@ import Matrix from './Components/Matrix';
 import AppHeader from './Components/AppHeader';
 import Footer from './Components/Footer';
 import Instructions from './Components/Instructions';
+import EndOfGame from './Components/EndOfGame';
 //import './App.css';
 import './css/index.css'
 
@@ -12,12 +13,68 @@ class App extends Component {
     this.state = {
         showSettings: true,
         language: "Spanish",
-        text : require('./Data/textSpanish.json')
+        text : require('./Data/textSpanish.json'), 
+        elementsToGuess : undefined, 
+        endOfGame : false
     }
     this.setShowSettings = this.setShowSettings.bind(this);
     this.toggleLenguage = this.toggleLenguage.bind(this);
+    this.setElementsToGuess = this.setElementsToGuess.bind(this);
+    this.setEndOfGame = this.setEndOfGame.bind(this);
+    this.updateElementsToGuess = this.updateElementsToGuess.bind(this);
     this.textEnglish = require('./Data/text.json');
     this.textSpanish = require('./Data/textSpanish.json');
+}
+
+setEndOfGame = () => {
+  this.setState({
+    endOfGame: !this.state.endOfGame
+  });
+}
+
+setElementsToGuess = (arr) => {
+  this.setState({
+    elementsToGuess: arr
+  });
+}
+
+createElementsToGuess = () => {
+  var arr = [];
+  while(arr.length < 3){
+    var id = Math.floor(Math.random() * 118) + 1;
+    var element = {
+        id: id,
+        guessed : false,
+        curiousFact : null
+    }
+    if((arr.findIndex(element => element.id === id)) === -1 ) arr.push(element);
+  }
+  this.setElementsToGuess(arr);
+}
+
+updateElementsToGuess = (arr, id, attribute, value) => {
+  var index = arr.findIndex(element => element.id === id) 
+  if (index !== -1){
+    arr[index][attribute] = value
+  }
+  this.setElementsToGuess(arr);
+}
+
+setCuriousFact = (id) => {
+  const curiousFact = "something"; // add custom curious fact 
+  this.updateElementsToGuess(this.state.elementsToGuess, id, "curiousFact", curiousFact);
+  this.checkElementsGuessState();
+}
+
+checkElementsGuessState = () => {
+  const allElementsGuessed = this.state.elementsToGuess.every( element => {
+    return element.guessed === true ;
+  })
+
+  if (allElementsGuessed){
+    console.log("FINISH GAME. SHOW CURIOUS FACTS");
+    this.setEndOfGame();
+  }
 }
 
 toggleText = () => {
@@ -67,6 +124,11 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
           />
           <Matrix
             lenguage = {this.state.language}
+            text = {this.state.text.elementModal}
+            elementsToGuess = {this.state.elementsToGuess}
+            createElementsToGuess = {this.createElementsToGuess}
+            updateElementsToGuess = {this.updateElementsToGuess}
+            setCuriousFact = {this.setCuriousFact}
           />
           <Footer
             setShowSettings = {this.setShowSettings}
@@ -80,8 +142,9 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
             language = {this.state.language}
             toggleLenguage = {this.changeLanguage}
           />
-         
-          
+          <EndOfGame
+            showModal = {this.state.endOfGame}
+          />
         </div>
       </div>
     );

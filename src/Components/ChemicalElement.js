@@ -15,7 +15,6 @@ class ChemicalElement extends Component {
             inputShadow : undefined
         }
 
-        
         this.toggleModalChemicalElementInformation = this.toggleModalChemicalElementInformation.bind(this);
         this.shake = this.setShake.bind(this);
         this.nameValue = this.handleTextChange.bind(this);
@@ -43,7 +42,7 @@ class ChemicalElement extends Component {
     }
 
 
-    info = (title, description) => {
+    modalInfo = (title, description) => {
         return(
             <div className={'box-body-information'}>
                 <div className={'box-body-information-key'}>
@@ -58,6 +57,7 @@ class ChemicalElement extends Component {
 
     checkShake = () => {
         let shake = null
+        /*
         if (this.props.selectedElements){
             
             shake = this.props.selectedElements.indexOf(this.props.element.atomic) === -1 ? false : "shake" ;
@@ -66,6 +66,20 @@ class ChemicalElement extends Component {
                 this.setShake(true);
             }
         }
+        */
+
+        
+        if (this.props.elementsToGuess){
+            const index = this.props.elementsToGuess.findIndex(element => element.id === this.props.element.atomic);
+            const shakeA = index === -1 ? false : true ;
+            
+            if (shakeA && !this.props.elementsToGuess[index].guessed){
+                this.setShake(true);
+            }
+        }
+
+
+
     }
 
     similarity = (s1, s2) => {
@@ -115,9 +129,7 @@ class ChemicalElement extends Component {
 
         const eventValue = event.target.value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
         const stateValue = this.props.element.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-
         console.log("name ",this.props.element.name)
-
         var similarity = this.similarity(stateValue,eventValue)
         
         if (event.target.value.length === 0){
@@ -138,8 +150,14 @@ class ChemicalElement extends Component {
 
         if(stateValue == eventValue){
             console.log("equals")
-            this.props.updateSelectedElements(this.props.element.atomic)
+            this.props.updateElementsToGuess(
+                this.props.elementsToGuess, 
+                this.props.element.atomic, 
+                "guessed", 
+                true
+            )
             this.setShake(undefined);
+            this.props.setCuriousFact(this.props.element.atomic);
         }
         
     }
@@ -170,7 +188,7 @@ class ChemicalElement extends Component {
                 {
                     this.props.element !== undefined ?
                         <div className={`periodic-table-element information ${this.props.element.cssStyle} ${shake ? "shakeElement":""}`} >
-                            {/*console.log(this.this.props.element)*/}
+                            
                             <div className={'atomic'}>{this.props.element.atomic}</div>
                             <div className={'symbol'}>{this.props.element.symbol}</div>
                             {shake?
@@ -211,57 +229,57 @@ class ChemicalElement extends Component {
 
                                         {
                                             this.props.element.atomic !== null && 
-                                            this.info("Atomic Number", this.props.element.atomic) 
+                                            this.modalInfo(this.props.text.atomicNumber, this.props.element.atomic) 
                                         }
                                         
                                         {
                                             this.props.element.symbol &&
-                                            this.info("Symbol", this.props.element.symbol)
+                                            this.modalInfo(this.props.text.symbol, this.props.element.symbol)
                                         }
                                         
                                         {
                                             this.props.element.atomicMass &&
-                                            this.info("Mass", this.props.element.atomicMass)
+                                            this.modalInfo(this.props.text.mass, this.props.element.atomicMass)
                                         }
                                         
                                         {
                                             this.props.element.electronicConfiguration &&
-                                            this.info("Electronic Conf.", this.props.element.electronicConfiguration)
+                                            this.modalInfo(this.props.text.electronicConf, this.props.element.electronicConfiguration)
                                         }
 
                                         {
                                             this.props.element.electronegativity &&
-                                            this.info("Electronegativity", this.props.element.electronegativity)
+                                            this.modalInfo(this.props.text.electronegativity, this.props.element.electronegativity)
                                         }
 
                                         {
                                             this.props.element.atomicRadius &&
-                                            this.info("Atomic Radius", this.props.element.atomicRadius)
+                                            this.modalInfo(this.props.text.atomicRadius, this.props.element.atomicRadius)
                                         }
                                         
                                         {
                                             this.props.element.ionRadius &&
-                                            this.info("Ionic Radius", `${this.props.element.ionRadius} pm`)
+                                            this.modalInfo(this.props.text.ionicRadius, `${this.props.element.ionRadius} pm`)
                                         }
                                         
                                         {
                                             this.props.element.vanDelWaalsRadius !== null &&
-                                            this.info("Van der Waals Radius", `${this.props.element.vanDelWaalsRadius} pm`)
+                                            this.modalInfo(this.props.text.vanDerWaalsRadius, `${this.props.element.vanDelWaalsRadius} pm`)
                                         }
                                         
                                         {
                                             this.props.element.ionizationEnergy &&
-                                            this.info("Ionic Energic", `${this.props.element.ionizationEnergy} mol`)
+                                            this.modalInfo(this.props.text.ionicEnergic, `${this.props.element.ionizationEnergy} mol`)
                                         }
                                         
                                         {
                                             this.props.element.electronAffinity !== null &&
-                                            this.info("Electronic affinity", this.props.element.electronAffinity)
+                                            this.modalInfo(this.props.text.electronicAffinity, this.props.element.electronAffinity)
                                         }
                                         
                                         {
                                             this.props.element.oxidationStates &&
-                                            this.info("Oxidation state", this.props.element.oxidationStates)
+                                            this.modalInfo(this.props.text.oxidationState, this.props.element.oxidationStates)
                                         }
                                         
                                     </div>
