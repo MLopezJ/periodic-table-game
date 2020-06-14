@@ -173,6 +173,32 @@ class ChemicalElement extends Component {
         )
     }
 
+    card = (shake) => {
+        if (window.innerWidth > 900){
+            return(
+            <div className={`periodic-table-element information ${this.props.element.cssStyle} ${shake ? "shakeElement":""}`} >     
+                {<div className={'atomic'}>{this.props.element.atomic}</div> }
+                <div className={'symbol'}>{this.props.element.symbol}</div>
+                {shake?
+                    <div className={'name'}>??</div>
+                :
+                    <div className={'name'}>{this.props.element.name}</div>
+                }             
+                <canvas onClick={this.toggleModalChemicalElementInformation} className="ink"></canvas>
+            </div>
+            ) 
+        }
+        else{
+            return(
+            <div className={`periodic-table-element information ${this.props.element.cssStyle} ${shake ? "shakeElement":""}`} >
+                            
+                <div className={'symbol'}>{this.props.element.symbol}</div>            
+                <canvas onClick={this.toggleModalChemicalElementInformation} className="ink"></canvas>
+            </div>
+            ) 
+        }
+    }
+
     
 
     render(){
@@ -187,17 +213,7 @@ class ChemicalElement extends Component {
             <div className = {'chemicalElement'}> 
                 {
                     this.props.element !== undefined ?
-                        <div className={`periodic-table-element information ${this.props.element.cssStyle} ${shake ? "shakeElement":""}`} >
-                            
-                            <div className={'atomic'}>{this.props.element.atomic}</div>
-                            <div className={'symbol'}>{this.props.element.symbol}</div>
-                            {shake?
-                                <div className={'name'}>??</div>
-                            :
-                                <div className={'name'}>{this.props.element.name}</div>
-                            }             
-                            <canvas onClick={this.toggleModalChemicalElementInformation} className="ink"></canvas>
-                        </div>
+                        this.card(shake)
                     :
                         null
                 }
