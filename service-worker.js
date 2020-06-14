@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/periodic-table-game/precache-manifest.5944ae92ec602a863c78c1b0a5f90a2a.js"
+  "/periodic-table-game/precache-manifest.f12bd7f4531c33190a306b77166b23eb.js"
 );
 
 workbox.clientsClaim();
