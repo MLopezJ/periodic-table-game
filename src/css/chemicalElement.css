@@ -9,7 +9,7 @@
     left: 50%;
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-    font-size: 18pt;
+    font-size: 18pt; 
     font-weight: 700;
 }
 
@@ -24,6 +24,25 @@
 }
 
 .periodic-table-element {
+    /*
+        MOIBLE 
+    position: relative;
+    font-weight: 600; 
+    padding: 8px;
+    width: 72px;
+    height: 72px;
+    min-width: 10px;  
+    min-height: 10px; 
+    width: 100%;
+    height: 100%;
+    -webkit-transition: none;
+    transition: none;
+    display: block;
+    text-transform: none;
+    */
+    
+
+    /* WEB */
     position: relative;
     font-weight: 600;
     padding: 8px;
@@ -35,6 +54,7 @@
     transition: none;
     display: block;
     text-transform: none;
+    
 }
 
 canvas {
@@ -47,7 +67,7 @@ canvas {
     border-radius: inherit;
     height: 100%; 
     left: 0px; 
-    position: absolute;
+    position: absolute; 
     top: 0px;
     width: 100%;
 }
@@ -205,3 +225,30 @@ input {
 .inputShadowGreen{
     box-shadow: 8px 5px 16px -3px rgba(0,122,43,1);
 }
+
+/* */
+@media only screen and (max-width: 900px) {
+
+    .periodic-table-element {
+        position: relative;
+        font-weight: 80; 
+        padding: 10px;
+        width: 72px;
+        height: 72px;
+        min-width: 10px;  
+        min-height: 10px; 
+        width: 100%;
+        height: 100%;
+        -webkit-transition: none;
+        transition: none;
+        display: block;
+        text-transform: none;
+    }
+
+    .symbol {
+        font-size: 9pt;  
+        font-weight: 900;
+    }
+    
+}
+
