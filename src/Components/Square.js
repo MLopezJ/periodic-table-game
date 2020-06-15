@@ -82,6 +82,8 @@ class Square extends Component {
                 updateElementsToGuess = {this.props.updateElementsToGuess}
                 text = {this.props.text}
                 setCuriousFact = {this.props.setCuriousFact}
+                closeChemicalElementModal = {this.props.closeChemicalElementModal}
+                setCloseChemicalElementModal = {this.props.setCloseChemicalElementModal}
             />
         )
     }

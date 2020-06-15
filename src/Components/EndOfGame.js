@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './../css/index.css'
 import './../css/colorsOfTheElements.css'
 import './../css/chemicalElement.css'
-
+import './../css/footer.css'
 
 class EndOfGame extends Component{
 
@@ -112,7 +112,7 @@ class EndOfGame extends Component{
             this.props.timeElapsed[1] + " " + this.state.seconds
 
         return(
-            <div className={'box-body-information-footer information noble_gases'}>
+            <div className={'box-body-information-simple information noble_gases'}>
             {this.state.time} = {text}
             </div> 
         )
@@ -124,7 +124,7 @@ class EndOfGame extends Component{
 
     playAgain = () => {
         return(
-            <div className={'box-body-information-footer information transition_metals'}
+            <div className={'box-body-information-simple information transition_metals'}
             onClick = {this.reloadPage}>
                 {this.state.playAgain}
             </div> 
@@ -148,6 +148,7 @@ class EndOfGame extends Component{
                 <div className={'overlay'} onClick={null}></div>
                 <div className={'styleElementModal modal modal-page '}> 
                     <div className={'box'}>
+                    <span className="closeModalButton" onClick={this.props.setStateEndOfGame}>&times;</span>
                     {
                         <div className={'box-body-information'}>
                         
@@ -165,7 +166,7 @@ class EndOfGame extends Component{
 
                         <div className={'box-body'}>
                             {
-                                <div className={'box-body-information-footer information amphigens'}>
+                                <div className={'box-body-information-simple information amphigens'}>
                                 {this.state.objetiveCompleted}
                                 </div>  
                             }

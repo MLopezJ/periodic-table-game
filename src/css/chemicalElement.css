@@ -127,6 +127,20 @@ canvas {
     box-shadow: 10px 10px 11px 10px rgba(0,0,0,0.75);
 }
 
+.closeModalButton {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.closeModalButton:hover,
+.closeModalButton:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .box{
     
     background-color: #132526;
@@ -181,8 +195,6 @@ canvas {
     padding-top: 4px;
     font-size: 13pt;
 }
-
-
 
 .shakeElement{
     background-color: #1a3133;
