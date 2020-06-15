@@ -74,6 +74,8 @@ class Matrix extends Component {
                                 lenguage = {this.props.lenguage}
                                 text = {this.props.text}
                                 setCuriousFact = {this.props.setCuriousFact}
+                                closeChemicalElementModal = {this.props.closeChemicalElementModal}
+                                setCloseChemicalElementModal = {this.props.setCloseChemicalElementModal}
                             />
                         )
                     })}

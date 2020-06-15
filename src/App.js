@@ -15,7 +15,8 @@ class App extends Component {
         language: "Spanish",
         text : require('./Data/textSpanish.json'), 
         elementsToGuess : undefined, 
-        endOfGame : false
+        endOfGame : false, 
+        closeChemicalElementModal : undefined
     }
     this.setShowSettings = this.setShowSettings.bind(this);
     this.toggleLenguage = this.toggleLenguage.bind(this);
@@ -26,6 +27,12 @@ class App extends Component {
     this.textSpanish = require('./Data/textSpanish.json');
     this.startTime = undefined;
     this.timeElapsed = undefined;
+}
+
+setCloseChemicalElementModal = (value) => {
+  this.setState({
+    closeChemicalElementModal: value
+  });
 }
 
 setEndOfGame = () => {
@@ -42,7 +49,7 @@ setElementsToGuess = (arr) => {
 
 createElementsToGuess = () => {
   var arr = [];
-  while(arr.length < 3){
+  while(arr.length < 3){ 
     var id = Math.floor(Math.random() * 118) + 1;
     var element = {
         id: id,
@@ -76,6 +83,7 @@ checkElementsGuessState = () => {
   if (allElementsGuessed){
     var timeElapsedMillis = Math.abs(new Date() - this.startTime);
     var timeElapsed = this.millisToMinutesAndSeconds(timeElapsedMillis);
+    this.setCloseChemicalElementModal(true);
     this.timeElapsed = timeElapsed;
     this.setEndOfGame();
   }
@@ -143,6 +151,8 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
             createElementsToGuess = {this.createElementsToGuess}
             updateElementsToGuess = {this.updateElementsToGuess}
             setCuriousFact = {this.setCuriousFact}
+            closeChemicalElementModal = {this.state.closeChemicalElementModal}
+            setCloseChemicalElementModal = {this.setCloseChemicalElementModal}
           />
           <Footer
             setShowSettings = {this.setShowSettings}
@@ -160,6 +170,7 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
             text = {this.state.text.endOfGame}
             language = {this.state.language}
             showModal = {this.state.endOfGame}
+            setStateEndOfGame = {this.setEndOfGame}
             timeElapsed = {this.timeElapsed}
           />
         </div>

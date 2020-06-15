@@ -203,7 +203,12 @@ class ChemicalElement extends Component {
 
     render(){
         
-        const { shake } = this.state;
+        const { shake, modalChemicalElementInformation } = this.state;
+
+        if(this.props.closeChemicalElementModal && modalChemicalElementInformation){
+            this.toggleModalChemicalElementInformation()
+            this.props.setCloseChemicalElementModal(false);
+        }
 
         if(!this.state.shake){
             this.checkShake()
@@ -224,7 +229,7 @@ class ChemicalElement extends Component {
                            <div className={'overlay'} onClick={this.toggleModalChemicalElementInformation}></div>
                             <div className={'styleElementModal modal modal-page '}> 
                                 <div className={'box'}>
-
+                                    <span class="closeModalButton" onClick={this.toggleModalChemicalElementInformation}>&times;</span>
                                     <div className={`box-header information ${this.props.element.cssStyle} `}>
                                         <div className={'element-name'}>
                                         {shake?
