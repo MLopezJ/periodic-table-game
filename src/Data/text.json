@@ -50,5 +50,36 @@
             {"id":"author2",
             "text":"Constant, innovator and willing to take challenges."}
         ]
+    }, 
+
+    "elementModal" : {
+        "atomicNumber":"Atomic Number",
+        "symbol":"Symbol",
+        "mass":"Mass",
+        "electronicConf":"Electronic Conf.",
+        "electronegativity":"Electronegativity",
+        "atomicRadius":"Atomic Radius",
+        "ionicRadius":"Ionic Radius",
+        "vanDerWaalsRadius":"Van der Waals Radius", 
+        "ionicEnergic":"Ionic Energic",
+        "electronicAffinity":"Electronic affinity",
+        "oxidationState":"Oxidation state"
+    }, 
+
+    "endOfGame" : {
+        "elements" : [
+            {"id":"title",
+            "text":"Congrats"},
+            {"id":"minutes",
+            "text":"minutes"},
+            {"id":"seconds",
+            "text":"seconds"},
+            {"id":"time",
+            "text":"Time"},
+            {"id":"objetiveCompleted",
+            "text":"Objective successfully completed"},
+            {"id":"playAgain",
+            "text":"Play again"}
+        ]
     }
 }

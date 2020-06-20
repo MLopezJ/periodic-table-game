@@ -19,8 +19,8 @@
     font-weight: 600;
 }
 
-.box-body-information-footer{
-    /*color: #fff;*/
+.box-body-information-simple{
+    color: #fff;
     display: -webkit-box;
     display: flex;
     -webkit-box-align: center;
@@ -28,7 +28,7 @@
     padding: 16px;
 }
 
-.box-body-information-footer:nth-child(2n){
+.box-body-information-simple:nth-child(2n+1){
     background-color: #112223;
     display: -webkit-box;
     display: flex;

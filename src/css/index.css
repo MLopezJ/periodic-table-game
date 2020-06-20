@@ -29,6 +29,7 @@ html{
 }
 .table{
     display: table;
+    /*min-height: 500px; */
     width: 100%;
     height: 100%;
 }
@@ -50,25 +51,45 @@ html{
 
 .row {
     display: table-row;
-    vertical-align: middle;
+    vertical-align: middle; /* not vertical align in mobile*/
     text-align: center;
     font-weight: 600;
     font-size: 10pt;
-
-    
-    
 }
 
 .numberOfColumn{
+    /* MOBILE */
+    height: 24px;
+    width: 72px;
+    min-height: 10px;
+    min-width: 10px;
+    display: table-cell;
+    
+
+    /*WEB 
     height: 24px;
     min-width: 72px;
     display: table-cell;
+
+    */
 }
 
 .numberOfRow{
+    /* 
+    MOBILE */
+    height: 72px; 
+    width: 24px;
+    min-height: 10px;
+    min-width: 10px;
+    display: table-cell;
+    
+
+    /* WEB 
     height: 72px;
     min-width: 24px;
     display: table-cell;
+
+    */
 }
 
 .vertex{
@@ -84,6 +105,17 @@ html{
 .chemicalElement:hover{
     background-color:  #0e1a1b ;
     cursor: pointer;
+}
+
+/* */
+@media only screen and (max-width: 900px) {
+    .numberOfRow{
+        height: 50px;
+    }
+
+    .row {
+        vertical-align: top;
+    }
 }
 
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './../css/index.css'
 import './../css/colorsOfTheElements.css'
 import './../css/chemicalElement.css'
+import './../css/footer.css'
 
 
 class Modal extends Component{
@@ -107,7 +108,7 @@ class Modal extends Component{
     }
 
     componentDidUpdate = (prevProps, prevState, snapshot) => {
-        console.log(prevProps.language , this.props.language , this.state.language)
+        
         if (prevProps.language == this.props.language & this.props.language != this.state.language){
             this.setLanguage(true)
         }
@@ -158,25 +159,25 @@ class Modal extends Component{
         return (
             <div className={'box-body'}>
                 {
-                    <div className={'box-body-information-footer information amphigens'}
+                    <div className={'box-body-information-simple information amphigens'}
                     onClick={this.toggleShowHowToPlay}>
                     1: {this.state.howToPlay}
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information noble_gases'}
+                    <div className={'box-body-information-simple information noble_gases'}
                     onClick={this.toggleShowChooseLenguage}>
                     2: {this.state.chooseLanguage}
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information transition_metals'}
+                    <div className={'box-body-information-simple information transition_metals'}
                     onClick={this.toggleShowAboutTheAuthor}>
                     3: {this.state.aboutTheAuthor}
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information metalloids'}
+                    <div className={'box-body-information-simple information metalloids'}
                     onClick={this.props.setShowSettings}>
                     {this.state.exit}
                     </div>  
@@ -189,22 +190,22 @@ class Modal extends Component{
         return (
             <div className={'box-body'}>
                 {
-                    <div className={'box-body-information-footer information amphigens'}>
+                    <div className={'box-body-information-simple information amphigens'}>
                     1: {this.state.instructionHowToPlay1}
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information noble_gases'}>
+                    <div className={'box-body-information-simple information noble_gases'}>
                     2: {this.state.instructionHowToPlay2}
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information transition_metals'}>
+                    <div className={'box-body-information-simple information transition_metals'}>
                     3: {this.state.instructionHowToPlay3}
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information transition_metals'}
+                    <div className={'box-body-information-simple information transition_metals'}
                     onClick={this.toggleShowHowToPlay}>
                     {this.state.back}
                     </div>  
@@ -217,7 +218,7 @@ class Modal extends Component{
         return (
             <div className={'box-body'}>
                 {
-                    <div className={'box-body-information-footer information amphigens'}>
+                    <div className={'box-body-information-simple information amphigens'}>
                     <div></div>
                     
                     <input type="radio" id="lenguage1" name="lenguage" value="Spanish" 
@@ -227,7 +228,7 @@ class Modal extends Component{
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information noble_gases'}>
+                    <div className={'box-body-information-simple information noble_gases'}>
                     
                     <input type="radio" id="lenguage2" name="lenguage" value="English"
                     checked = {this.props.language === "English"}
@@ -238,7 +239,7 @@ class Modal extends Component{
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information transition_metals'}
+                    <div className={'box-body-information-simple information transition_metals'}
                     onClick={this.toggleShowChooseLenguage}>
                     {this.state.back}
                     </div>  
@@ -251,33 +252,33 @@ class Modal extends Component{
         return(
             <div className={'box-body'}>     
                 {
-                    <div className={'box-body-information-footer information basic_metals'}>
+                    <div className={'box-body-information-simple information basic_metals'}>
                     {this.state.author1}
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information actinoids'}>
+                    <div className={'box-body-information-simple information actinoids'}>
                     {this.state.author2}
                     </div>  
                 }
 
                 {
-                    <div className={'box-body-information-footer information amphigens'}>
+                    <div className={'box-body-information-simple information amphigens'}>
                     Mail: lopezjimenezmauro05@gmail.com
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information noble_gases'}>
+                    <div className={'box-body-information-simple information noble_gases'}>
                     Github: MLopezJ
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information transition_metals'}>
+                    <div className={'box-body-information-simple information transition_metals'}>
                     Twitter: MauroLopezJ
                     </div>  
                 }
                 {
-                    <div className={'box-body-information-footer information metalloids'}
+                    <div className={'box-body-information-simple information metalloids'}
                     onClick={this.toggleShowAboutTheAuthor}>
                     {this.state.back}
                     </div>  
@@ -291,21 +292,17 @@ class Modal extends Component{
         return(
             <div>
                 <div className={'overlay'} onClick={this.props.setShowSettings}></div>
-                <div className={'styleElementModal modal modal-page '}> 
+                <div className={'styleElementModal modal modal-page '}>
+                 
                     <div className={'box'}>
-                            {
-                                <div className={'box-body-information'}>
-                                
-                                    <div className={'box-header information alkali_metals'}>
+                        <span className="closeModalButton" onClick={this.props.setShowSettings}>&times;</span>
                         
-                                        <div className={'element-name'}>
-                                            {`${this.state.modalTittle}`}
-                                        </div>
-
-                                    </div>
-                                </div>  
-                            }
-
+                        <div className={`box-header information alkali_metals `}>
+                            <div className={'element-name'}>
+                            {`${this.state.modalTittle}`}    
+                            </div>
+                        </div>
+                        
                         <div className={'box-body'}>
                         {this.state.showHowtoPlay ? this.howToPlay() : null }
                         {this.state.showAboutTheAuthor ? this.aboutTheAuthor() : null }
@@ -323,7 +320,7 @@ class Modal extends Component{
     
 
     render(){
-        console.log(this.state.showHowtoPlay)
+        
         if (this.props.showSettings){
             return(
                 this.modal()

@@ -70,14 +70,20 @@ class Square extends Component {
     ChemicalElement = () => {
         const element = this.getElement();
         const chemicalElementGroupName = this.prettyGroupName(element.group);
+
+        // Agregar los datos curiosos a lista de elementos seleccionados
         
         return(
             <ChemicalElement
                 element = {element}
                 chemicalElementGroupName = {chemicalElementGroupName}
-                selectedElements = {this.props.selectedElements}
+                elementsToGuess= {this.props.elementsToGuess} 
                 updateSelectedElements = {this.props.updateSelectedElements}
-                lenguage = {this.props.lenguage}
+                updateElementsToGuess = {this.props.updateElementsToGuess}
+                text = {this.props.text}
+                setCuriousFact = {this.props.setCuriousFact}
+                closeChemicalElementModal = {this.props.closeChemicalElementModal}
+                setCloseChemicalElementModal = {this.props.setCloseChemicalElementModal}
             />
         )
     }
