@@ -109,8 +109,12 @@ setShowSettings = () => {
     showSettings: !this.state.showSettings
   });
   if (this.startTime === undefined){
-    this.startTime = new Date();
+    this.restartTime();
   }
+}
+
+restartTime = () => {
+  this.startTime = new Date();
 }
 
 toggleLenguage = (language) => {
@@ -172,6 +176,8 @@ componentDidUpdate = (prevProps, prevState, snapshot) => {
             showModal = {this.state.endOfGame}
             setStateEndOfGame = {this.setEndOfGame}
             timeElapsed = {this.timeElapsed}
+            createElementsToGuess = {this.createElementsToGuess}
+            restartTime = {this.restartTime}
           />
         </div>
       </div>
