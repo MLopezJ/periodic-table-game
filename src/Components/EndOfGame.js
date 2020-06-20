@@ -119,7 +119,10 @@ class EndOfGame extends Component{
     }
 
     reloadPage = () => {
-        window.location.reload()
+        //window.location.reload()
+        this.props.createElementsToGuess();
+        this.props.setStateEndOfGame();
+        this.props.restartTime();
     }
 
     playAgain = () => {
